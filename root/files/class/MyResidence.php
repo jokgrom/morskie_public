@@ -117,7 +117,7 @@ class MyResidence{
                                     :address, :contacts, :conveniences, :prices)";
         $stmt_is_edit = $this->db->prepare($query_is_edit);
         if($stmt_is_edit->execute($params)){
-            exit('<div class="modal"><p>Объявление добавлено. Добавьте фотографии!</p></div>
+            exit('<div class="modal"><p>Объявление создано, осталось добавить фотографии!</p></div>
                     <script  type="text/javascript">
                      setTimeout(function(){
                         window.location.href = "/cabinet/residence/add/step2.php";

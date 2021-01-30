@@ -89,7 +89,11 @@
              }
              $queryGroupBy=' GROUP BY residence.id';
 
-             $queryCOUNT="SELECT COUNT(id) AS `countProduct` FROM residence WHERE _adminStatusPublication !=3";
+             $queryCOUNT="SELECT COUNT(DISTINCT residence.id) AS `countProduct` FROM residence 
+                INNER JOIN photo_residence ON photo_residence.residence_id=residence.id AND photo_residence._adminStatusPublication=2
+                WHERE residence._adminStatusPublication =2 AND residence.publicationStatus_id=2";
+
+
              $query = "SELECT residence.id AS `residenceId`,
                             residence._adminStatusPublication AS `residence_adminStatusPublication`,
                             publication_status.title AS `publication_statusTitle`,
