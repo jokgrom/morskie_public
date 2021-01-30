@@ -1,0 +1,58 @@
+.header {
+	margin-bottom:1.625rem;
+	background-color: rgba(0,147,224,0.88);
+	background: url("/img/head.png") no-repeat center;
+	background-size: cover;
+	color:#fff;
+	.version {
+		padding:1.25rem;
+		font-size: 80%;
+		text-align: right;
+	}
+
+	.logo {
+		padding:0 1.25rem;
+		height: 10.25rem;
+		text-align: center;
+		text-transform: uppercase;
+		font-family: AliceRegular;
+		p {
+			/*font-family: LobsterRegular;*/
+			letter-spacing: 0.3125rem;
+			font-size: 160%;
+
+    		text-shadow: 0.0625rem 0.0625rem 0.0625rem #000;
+		}
+	}
+
+	.navigation {
+		display: flex;
+		justify-content: space-around;
+		padding:0 3%;
+		background-color: rgba(0,147,224,0.88); //$color6;
+		text-transform: uppercase;
+		li {
+			border-bottom:2px solid rgba(0,147,224,0.88);
+			&:hover {
+				border-bottom:2px solid $color4;
+			};
+		}
+		li {
+			min-width:90px;
+		}
+		a{
+			display: block;
+			padding: 0.6rem;
+			margin: 0.125rem;
+			color: #fff; // FFA840 ffbc00
+			// color: rgb(112, 140, 145);
+			letter-spacing: 0.14rem;
+			text-shadow: 0.0625rem 0.0625rem 0.0625rem #000;
+			font-family: AliceRegular;
+
+			&:hover{
+				color:$color4;
+			}
+		}
+	}
+}

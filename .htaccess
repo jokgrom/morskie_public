@@ -1,0 +1,14 @@
+RewriteEngine On
+
+AddDefaultCharset UTF-8
+
+ErrorDocument 404 /404.php
+
+#RewriteCond %{REQUEST_URI} ^/nomer/ 
+#RewriteRule ^nomer/([^/\.]+)$ ^nomer/index.php?id=$1 [L]
+
+
+
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^residence/([^/\.]+)$ /residence/index.php?id=$1 [NC,L]

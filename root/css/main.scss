@@ -1,0 +1,208 @@
+@font-face {
+  font-family: 'LobsterRegular'; /* Гарнитура шрифта */
+  src: url('/root/fonts/LobsterRegular.ttf'); /* Путь к файлу со шрифтом */
+}
+@font-face {
+  font-family: 'AliceRegular'; /* Гарнитура шрифта */
+  src: url('/root/fonts/AliceRegular.ttf'); /* Путь к файлу со шрифтом */
+}
+@font-face {
+  font-family: 'PhilosopherRegular'; /* Гарнитура шрифта */
+  src: url('/root/fonts/PhilosopherRegular.ttf'); /* Путь к файлу со шрифтом */
+}
+@font-face {
+  font-family: 'OswaldVariable.ttf'; /* Гарнитура шрифта */
+  src: url('/root/fonts/OswaldVariable.ttf'); /* Путь к файлу со шрифтом */
+}
+@import "reset.css";
+
+$color1:#f1f3f4; //FFA840
+$color2:#108bb3; //#95293d b76153  #297295
+$color3: rgb(80, 85, 86);
+$color4:#f78d0f;
+$color5:rgb(112, 140, 145);
+$color6:#0093e0;
+$color7:#169e0d;
+$family1:AliceRegular;
+$family2:OswaldVariable;
+$family3:PhilosopherRegular;
+%label{
+	display: block;
+	margin-bottom: -0.44rem;
+	font-size: 90%;
+	font-weight: 600;
+}
+
+label {
+	font-family: $family1;
+}
+section {
+	margin-bottom: 1.25rem;
+}
+html {
+	font-size: 1.3vw;
+}
+//общий скелет
+@import "page.scss";
+
+
+//навигация
+@import "header.scss";
+
+// формы ввода
+@import "forms.scss";
+
+//продукт
+@import "product.scss";
+
+
+
+
+
+
+//остальные поля
+.title {
+	margin-bottom: 1.5625rem;
+	font-weight: 600;
+	font-size: 150%;//150%;
+	font-family: $family1;
+	color:$color2;
+}
+
+.pagination {
+	display: flex;
+	font-family: $family3;
+}
+.pagination a {
+	padding: 0.19rem 0.5625rem;
+	margin: 0 0.25rem;
+	border: 0.63rem solid #dee4e6;
+    border-radius: 0.125rem;
+	line-height: 1em;
+}
+.pagination-main-page{
+	color:$color2;
+	font-weight: 600;
+}
+.info-text , .info-text2{
+	min-height: 1rem;
+	color:#363abf;
+}
+.mapbox { min-height: 18.75rem;}
+.map {
+	width:100%;
+	height:18.75rem;
+}
+
+.strong {
+	font-weight: 600;
+	color:$color3;
+}
+.small {font-size: 80%;}
+.color1 {color:$color5;}
+.color2 {color:$color2;}
+.color4 {color:$color4;}
+.color7 {color:$color7;}
+.bgColor1 {background-color: $color4;}
+
+.onModeration{ opacity: 0.8}
+.img {padding: 0.32rem;}
+.img:hover {cursor:move;}
+.boxImg {display: inline-block; position: relative;}
+.deletePhoto {
+	position: absolute;
+    padding: 0 0.125rem;
+    right: 5%;
+    top: 4%;
+    border: 0.063rem solid #fff;
+    border-radius: 50%;
+    color: #d43a3a;
+    font-weight: 600;
+    line-height: 1em;
+}
+
+.convenience .strong {
+	margin-top: 0.94rem;
+}
+
+
+//модальное окно
+.modal {
+	position: fixed;
+    top: 0;
+    left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	p {
+		padding: 5%;
+		border: 1px solid #fff;
+		border-radius: 1rem;
+		font-family: Arial;
+		font-size: 140%;
+		color: #fff;
+		background-color: #000;
+		z-index: 101;
+	}
+	&::before{
+		display: block;
+		content: "";
+		background: rgba(0, 0, 0, .43);
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+	}
+}
+
+
+
+
+//страница residence
+@import "pageResidence.scss";
+
+//страница контакты
+@import "pageContacts.scss";
+
+@import "loading.css";
+
+//лорд
+@import "pagesLord.scss";
+
+.page-authorization, .page-registration, .page-passwordReset{
+	label{
+		@extend %label;
+	}
+}
+.page-registration .section {
+	input[type=button] {
+		margin-top: 1em;
+	}
+
+}
+
+/*......................	*/
+.fotorama {margin: 1.25rem 0;}
+.fotorama__caption {display: none;}
+.fotorama__stage {border-radius: 3px;}
+
+//для адоптации
+.footer-menu-block, .filter-menu-button{
+	display: none;
+}
+.page-residences {
+	.left-menu-button {
+		display: none;
+	}
+	.filter-menu-button {
+		display: block;
+	}
+
+}
+
+//мобильная версия
+@import "mobile_style.scss";

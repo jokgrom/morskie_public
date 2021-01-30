@@ -1,0 +1,23 @@
+.page-residence {
+	.product-description{width:50%;}
+	.section-photo{width:80%}
+	.strong {color:$color3;}
+	.section {margin-bottom: 2.125rem;}
+	.table-price {
+		display: flex;
+		flex-wrap: wrap;
+		.cell {
+			margin-top: 1em;
+		}
+		.th {
+			color:$color2;
+			font-family: PhilosopherRegular;
+		}
+		.th , .td {
+			text-align: center;
+			min-width: 4.075rem;
+			padding:0.125rem;
+			outline: 0.0625rem solid $color4;
+		}
+	}
+}

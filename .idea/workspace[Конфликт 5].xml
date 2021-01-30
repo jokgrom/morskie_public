@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9a71d708-c4bc-4dbc-9b4f-47096197f3c0" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1lYzTEkd7hmv62B4HlcMaNHTGJ5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cabinet/residence" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Public\domain\OSPanel\domains\morskie\residences\app" />
+      <recent name="C:\Users\Public\domain\OSPanel\domains\morskie\cabinet\residence\edit\app" />
+      <recent name="C:\Users\Public\domain\OSPanel\domains\morskie\root\files\class" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Public\domain\OSPanel\domains\morskie\cabinet\residence" />
+      <recent name="C:\Users\Public\domain\OSPanel\domains\morskie\root\files\class" />
+      <recent name="C:\Users\Public\domain\OSPanel\domains\morskie\" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9a71d708-c4bc-4dbc-9b4f-47096197f3c0" name="Default Changelist" comment="" />
+      <created>1607788818569</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607788818569</updated>
+      <workItem from="1607788819649" duration="6885000" />
+      <workItem from="1607863964050" duration="24598000" />
+      <workItem from="1608548203329" duration="72153000" />
+      <workItem from="1608916010234" duration="113000" />
+      <workItem from="1608917195672" duration="34000" />
+      <workItem from="1609075451040" duration="88000" />
+      <workItem from="1609339201596" duration="14403000" />
+      <workItem from="1609415076982" duration="8651000" />
+      <workItem from="1610561504362" duration="229000" />
+      <workItem from="1610622324322" duration="16778000" />
+      <workItem from="1610715323605" duration="3909000" />
+      <workItem from="1610726565738" duration="4425000" />
+      <workItem from="1610892839523" duration="26699000" />
+      <workItem from="1611074534287" duration="2128000" />
+      <workItem from="1611076749266" duration="52196000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

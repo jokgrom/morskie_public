@@ -1,0 +1,132 @@
+.page {
+  position: relative;
+  margin: 0 auto;
+  max-width: 84.375rem;
+  // min-width: 21.875rem;
+  min-width: 600px;
+  min-height: 100ch;
+}
+.container {
+	padding:0 6%;
+	margin-bottom:1.25rem;
+}
+.content {
+	display: flex;
+}
+main {
+	width: 80%;
+	padding-left: 2em;
+}
+.footer {
+	padding: 1.25rem 6%;
+	margin-bottom:50px;
+	font-family: $family3;
+	text-align: center;
+}
+
+
+//левое меню
+.left-bar{
+	position: relative;
+	width: 20%;
+	margin-bottom:1.25rem;
+	font-family: $family3;
+	font-size: 116%;
+	p {
+		margin-top:0.625rem;
+		color:$color3;
+	}
+	a {
+		text-shadow: 0 0 #0093e0;
+	}
+	label{
+		font-family: $family2;
+		font-size: 100%;
+	}
+	ul {
+		margin-bottom:0.5rem;
+	}
+	li {
+		padding-bottom: 0.3rem;
+	}
+}
+.page-residences {
+	.navigation .cell:nth-of-type(1) a{
+		color:$color4;
+	}
+}
+.page-residence, .page-addResidence, .page-editResidence{
+	.left-bar ul{
+		position: absolute;
+	}
+}
+
+.page-contacts {
+	.navigation .cell:nth-of-type(2) a{
+		color:$color4;
+	}
+}
+.page-addResidence {
+	.navigation .cell:nth-of-type(3) a{
+		color:$color4;
+	}
+}
+.myResidence {
+	.listTypeProduct li{
+		padding: 0;
+	}
+	.navigation .cell:nth-of-type(4) a{
+		color:$color4;
+	}
+}
+.page-publish {
+	.listTypeProduct li:nth-of-type(1) a{
+		color:$color7;
+	}
+}
+.page-noPublish {
+	.listTypeProduct li:nth-of-type(2) a{
+		color:$color7;
+	}
+}
+.page-onChecking {
+	.listTypeProduct li:nth-of-type(3) a{
+		color:$color7;
+	}
+}
+.page-refusing {
+	.listTypeProduct li:nth-of-type(4) a{
+		color:$color7;
+	}
+}
+
+.page-profile{
+	label{
+		@extend %label;
+	}
+	.profile a{
+		color:$color7;
+	}
+}
+
+.page-main{
+	.container {
+		padding: 0;
+	}
+	.main {
+		width:100%;
+		padding: 0 2em;
+	}
+	.suburb-list {
+		display: flex;
+		justify-content: center;
+		/*flex-wrap: wrap;*/
+		/*justify-content: space-around;*/
+		border-top: 1px solid $color5;
+		padding-top:1rem;
+		.cell {
+			width: 200px;
+			margin-bottom:1rem;
+		}
+	}
+}

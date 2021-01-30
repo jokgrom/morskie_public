@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACA,qCAAsC;EACrC,IAAK;IACH,SAAS,EAAE,OAAO;AAGrB,qCAAsC;EACrC,IAAK;IACH,SAAS,EAAE,OAAO;AAGrB,oCAAqC;EACpC,IAAK;IACH,SAAS,EAAE,OAAO",
+"sources": ["mobile_style.scss"],
+"names": [],
+"file": "mobile_style.css"
+}

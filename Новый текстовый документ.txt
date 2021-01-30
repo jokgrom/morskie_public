@@ -1,0 +1,5 @@
+UHJ9lb2Y
+
+
+
+ <p><a href="/residence/<?php echo $cell["residenceId"];?>" class="product-name <?php echo $colorError['residenceTitle'];?>" target="_blank"><?php echo $cell["residenceTitle"];?></a></p>
