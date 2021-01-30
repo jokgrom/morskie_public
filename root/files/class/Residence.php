@@ -87,6 +87,7 @@
                  default:
                      $queryOrderBy=' ORDER BY residence.id';
              }
+             $queryGroupBy=' GROUP BY residence.id';
 
              $queryCOUNT="SELECT COUNT(id) AS `countProduct` FROM residence WHERE _adminStatusPublication !=3";
              $query = "SELECT residence.id AS `residenceId`,
@@ -115,8 +116,9 @@
                     INNER JOIN type_housing ON residence.typeHousing_id=type_housing.id
                     INNER JOIN distance ON residence.distance_id=distance.id
                     INNER JOIN ad_owner ON residence.adOwner_id=ad_owner.id
-                    INNER JOIN publication_status ON residence.publicationStatus_id=publication_status.id
-                    WHERE _adminStatusPublication =2";
+                    INNER JOIN publication_status ON residence.publicationStatus_id=publication_status.id AND residence.publicationStatus_id=2
+                    INNER JOIN photo_residence ON photo_residence.residence_id=residence.id AND photo_residence._adminStatusPublication=2 
+                    WHERE residence._adminStatusPublication =2";
 
              if(count($queryWhere)>=1){
                  $queryWhere=join($queryWhere, ' AND ');
@@ -132,7 +134,7 @@
                  $queryLimit=' LIMIT 0,'.$maxCountProduct;
              }
 
-             $query.=$queryOrderBy;
+             $query.=$queryGroupBy.$queryOrderBy;
              $query.=$queryLimit;
              $data =$this->db->query($query);
              if(is_object($data)){
