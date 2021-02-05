@@ -133,7 +133,7 @@ class CleanFormProduct extends CleanForm
 
     function coordinate($coordinate){
         $coordinate=parent::clean($coordinate);
-        $coordinate=preg_replace('/[^0-9,\.]/','', $coordinate);
+        $coordinate=preg_replace('/[^0-9,.]/','', $coordinate);
         $coordinate=mb_substr($coordinate, 0, 10);
         $coordinate=(float)($coordinate);
         if($coordinate<35){
