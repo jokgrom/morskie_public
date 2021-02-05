@@ -17,7 +17,7 @@ class CleanFormProduct extends CleanForm
 
     function title($title){
         $title=parent::clean($title);
-        $title=preg_replace('/[^a-zA-Zа-яА-ЯёЁ0-9_ -«»]/u','', $title);
+        $title=preg_replace('/[^a-zA-Zа-яА-ЯёЁ0-9_ -]/u','', $title);
         $title=mb_substr($title, 0, 60);
         if(mb_strlen($title, 'utf8')<3){
             return array ($title, true, 'не заполнено поле "Название объявления"');
