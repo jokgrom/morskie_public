@@ -9,9 +9,6 @@
 	$person=$_GET['person'];
     $CleanFormPerson= new CleanFormPerson();
     $statusError=[];
-//    $person["phone"]=89999999995;
-//    $person["password"]=555;
-//    $person["password2"]=555;
 
 	//ищём ошибки
     list  ($person["phone"], $boolError, $textError)=$CleanFormPerson->phone($person["phone"]);

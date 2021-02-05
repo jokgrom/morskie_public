@@ -9,16 +9,14 @@ class Checks
         $this->db = $db;
     }
 
-    function suburbOnCity($city,$suburb){
-        $query = "SELECT parent_city_id FROM city WHERE id = :suburb LIMIT 1";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute([':suburb' => $suburb]);
-        $cell= $stmt->fetch();
-
-        if($cell[parent_city_id]==$city){
-            return array (false, '');
-        }else{
-            return array (true, 'поле "Пригород" не соответствует полю "Город"');
+    static function authenticationLord(){
+        if($_COOKIE['person_id']!=117 OR $_COOKIE['person_identification']!='237ce737ad12b921957e0c76b'){
+            exit('<div class="modal"><p>Ошибка Аутентификации!</p></div>
+                <script  type="text/javascript">
+                    setTimeout(function(){
+                        window.location.href = "/";
+                    }, 500);
+                </script>');
         }
     }
 
@@ -32,6 +30,21 @@ class Checks
             return array (true, 'ошибка Аутентификации№3');
         }
     }
+
+    function suburbOnCity($city,$suburb){
+        $query = "SELECT parent_city_id FROM city WHERE id = :suburb LIMIT 1";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([':suburb' => $suburb]);
+        $cell= $stmt->fetch();
+
+        if($cell[parent_city_id]==$city){
+            return array (false, '');
+        }else{
+            return array (true, 'поле "Пригород" не соответствует полю "Город"');
+        }
+    }
+
+
 
     function lastResidenceId($personId, $productId){
         $query = "SELECT 1 FROM residence WHERE id = :productId AND person_id=:personId LIMIT 1";
@@ -91,6 +104,8 @@ class Checks
             return false;
         }
     }
+
+
 
 
 }

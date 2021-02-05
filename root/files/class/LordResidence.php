@@ -48,11 +48,11 @@ class LordResidence
         $monthArray=["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"];
         $key=date('n');
         $priceContent='';
-        for($i=1; $i<=5; $i++){
-            $price=($priceList->$i>50 ? $priceList->$i.' &#8381;' :'—' );
+        for($i=0; $i<=4; $i++){
+            $price=($priceList->$key>50 ? $priceList->$key.' &#8381;' :'—' );
             $priceContent.='<li>'.$monthArray[$key-1].': '.$price.'</li>';
             $key=$key+1;
-            if($key>12){$key=1;}
+            if($key>=12){$key=1;}
         }
         return $priceContent;
     }
@@ -86,7 +86,7 @@ class LordResidence
                 INNER JOIN type_housing ON residence_edit.typeHousing_id=type_housing.id
                 INNER JOIN distance ON residence_edit.distance_id=distance.id
                 INNER JOIN ad_owner ON residence_edit.adOwner_id=ad_owner.id
-                WHERE residence_edit._adminStatusPublication=3 ORDER BY residence_edit.date_edit DESC";
+                WHERE residence_edit._adminStatusPublication=3 ORDER BY residence_edit.date_edit DESC LIMIT 10";
         $data_edit=$this->db->query($query_edit);
         if(is_object($data_edit)){
             foreach($data_edit  as $cell) {

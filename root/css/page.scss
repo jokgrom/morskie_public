@@ -48,6 +48,9 @@ main {
 	}
 	li {
 		padding-bottom: 0.3rem;
+		label:hover {
+			cursor: pointer;
+		}
 	}
 }
 .page-residences {
@@ -119,9 +122,9 @@ main {
 	}
 	.suburb-list {
 		display: flex;
-		justify-content: center;
-		/*flex-wrap: wrap;*/
-		/*justify-content: space-around;*/
+		//justify-content: center;
+		flex-wrap: wrap;
+		justify-content: space-around;
 		border-top: 1px solid $color5;
 		padding-top:1rem;
 		.cell {

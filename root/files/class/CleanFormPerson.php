@@ -81,7 +81,7 @@ class CleanFormPerson extends CleanForm
     function description($description){
         $description=parent::clean($description);
         $description=preg_replace('/[^a-zA-Zа-яА-ЯёЁ0-9_ \n\-(){}\[\]\/.,;:@!?#№=+]/u','', $description);
-        $description=mb_substr($description, 0, 1000);
+        $description=mb_substr($description, 0, 2000);
         if(mb_strlen($description, 'utf8')<3){
             return array ($description, true, 'не корректное описание');
         }else{
@@ -104,7 +104,7 @@ class CleanFormPerson extends CleanForm
     function message($message){
         $message=parent::clean($message);
         $message=preg_replace('/[^a-zA-Zа-яА-ЯёЁ0-9_ \n\-(){}\[\]\/.,;:@!?#№=+]/u','', $message);
-        $message=mb_substr($message, 0, 1000);
+        $message=mb_substr($message, 0, 2000);
         if(mb_strlen($message, 'utf8')<3){
             return array ($message, true, 'короткое сообщение');
         }else{

@@ -1,18 +1,19 @@
 .header {
 	margin-bottom:1.625rem;
 	background-color: rgba(0,147,224,0.88);
-	background: url("/img/head.png") no-repeat center;
+	background: url("/root/img/head.jpg") no-repeat center;
 	background-size: cover;
 	color:#fff;
 	.version {
 		padding:1.25rem;
+		height: 3.25rem;
 		font-size: 80%;
 		text-align: right;
 	}
 
 	.logo {
 		padding:0 1.25rem;
-		height: 10.25rem;
+		height: 8rem;
 		text-align: center;
 		text-transform: uppercase;
 		font-family: AliceRegular;

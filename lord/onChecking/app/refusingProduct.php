@@ -6,6 +6,9 @@
 
     require_once($_SERVER['DOCUMENT_ROOT'].'/root/files/class/LordResidence.php');
 
+    require_once($_SERVER['DOCUMENT_ROOT'].'/root/files/class/Checks.php');
+    $Checks=new Checks($db);
+    $Checks->authenticationLord();
 
     $statusError=[];
     $CleanFormProduct= new CleanFormProduct();

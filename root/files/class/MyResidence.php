@@ -14,6 +14,40 @@ class MyResidence{
         $this->db = $db;
     }
 
+    public static function _mail($type, $personId){
+        switch($type){
+            case 'new_residence':
+                $title='Морские пути - Новое жильё';
+                $subject='new residence';
+                break;
+            case 'new_photoResidence':
+                $title='Морские пути - Новое фото';
+                $subject='new photo residence';
+                break;
+            case 'edit_residence':
+                $title='Морские пути - редактирование жилья';
+                $subject='edit residence';
+                break;
+            default:
+                $title='Морские пути';
+                $subject='no type';
+                break;
+        }
+        $date=date("d.m.y G:i");
+        $headers = "From: Морские пути <robot@morskie-puti.ru>\r\nContent-type: text/html; charset=utf-8 \r\n";
+        $message= '
+		 	<html>
+			    <head>
+		 	   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		 	        <title>$title</title>
+		 	    </head>
+		 	    <body>
+		 	        <p>дата: '. $date .'</p>
+		 	        <p>id пользователя: '.$personId.'</p>
+		 	    </body> 
+		 	</html>';
+        mail('jokgrom@yandex.ru', $subject, $message, $headers);
+    }
 
     protected function _getPhoto($productId, $adminStatusPublication='', $no_adminStatusPublication=''){
         //совмещаем старые и вновь добавленные фотографии
@@ -49,26 +83,28 @@ class MyResidence{
         return $convenienceContent;
     }
 
-
     protected function _getPrice($residencePrice){
         $priceList=json_decode($residencePrice);
         $monthArray=["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"];
         $key=date('n');
         $priceContent='';
-        for($i=1; $i<=5; $i++){
-            $price=($priceList->$i>50 ? $priceList->$i.' &#8381;' :'—' );
+        for($i=0; $i<=4; $i++){
+            $price=($priceList->$key>50 ? $priceList->$key.' &#8381;' :'—' );
             $priceContent.='<li>'.$monthArray[$key-1].': '.$price.'</li>';
             $key=$key+1;
-            if($key>12){$key=1;}
+            if($key>=12){$key=1;}
         }
         return $priceContent;
     }
 
 
     public function add($personId, $product){
-        $date_added=time();
+        $product['rules']=nl2br($product['rules']);
+        $product['description']=nl2br($product['description']);
+        $product['contacts']=nl2br($product['contacts']);
         $product['conveniences']=json_encode($product['conveniences']);
         $product['price']=json_encode($product['price']);
+        $date_added=time();
 
         $query = "INSERT INTO residence 
                     (date_added, person_id, title, 
@@ -117,6 +153,7 @@ class MyResidence{
                                     :address, :contacts, :conveniences, :prices)";
         $stmt_is_edit = $this->db->prepare($query_is_edit);
         if($stmt_is_edit->execute($params)){
+            self::_mail('new_residence', $personId);
             exit('<div class="modal"><p>Объявление создано, осталось добавить фотографии!</p></div>
                     <script  type="text/javascript">
                      setTimeout(function(){
@@ -175,7 +212,7 @@ class MyResidence{
                 INNER JOIN distance ON residence.distance_id=distance.id
                 INNER JOIN ad_owner ON residence.adOwner_id=ad_owner.id
                 INNER JOIN publication_status ON residence.publicationStatus_id=publication_status.id
-                WHERE residence.person_id=:personId AND residence._adminStatusPublication=2 $queryWhere";
+                WHERE residence.person_id=:personId AND residence._adminStatusPublication=2 $queryWhere ORDER BY residence.date_added DESC";
         $params =	[':personId' => $personId];
         $stmt = $this->db->prepare($query);
         $stmt->execute($params);
@@ -378,9 +415,13 @@ class MyResidence{
         $stmt_deleteProduct = $this->db->prepare($query_deleteProduct);
         $stmt_deleteProduct->execute($params);
 
-        $date_edit=time();
+        $product['rules']=nl2br($product['rules']);
+        $product['description']=nl2br($product['description']);
+        $product['contacts']=nl2br($product['contacts']);
         $product['conveniences']=json_encode($product['conveniences']);
         $product['price']=json_encode($product['price']);
+        $date_edit=time();
+
         $query = "INSERT INTO residence_edit 
                     (residence_id, date_edit, person_id, title, 
                      city_id, suburb_id, guest_id, typeHousing_id, 
@@ -412,6 +453,7 @@ class MyResidence{
 
         $stmt = $this->db->prepare($query);
         if($stmt->execute($params)){
+            self::_mail('edit_residence', $personId);
             exit('<div class="modal"><p>бъявление отправленно на рассмотрение!</p></div>
                     <script  type="text/javascript">
                      setTimeout(function(){

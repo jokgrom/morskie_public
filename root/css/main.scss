@@ -114,11 +114,15 @@ html {
     padding: 0 0.125rem;
     right: 5%;
     top: 4%;
-    border: 0.063rem solid #fff;
-    border-radius: 50%;
+    border: 0.063rem solid $color5;
     color: #d43a3a;
     font-weight: 600;
     line-height: 1em;
+	background-color: #fff;
+	opacity: 0.7;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .convenience .strong {

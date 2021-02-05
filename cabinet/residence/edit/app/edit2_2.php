@@ -16,24 +16,7 @@
 
 
     //проверка аутентификации
-    list  ($personId, $boolError, $textError)=$CleanFormPerson->personId($_COOKIE['person_id']);
-    if($boolError){array_push($statusError, $textError);}
-
-    list  ($personIdentification, $boolError, $textError)=$CleanFormPerson->personIdentification($_COOKIE['person_identification']);
-    if($boolError){array_push($statusError, $textError);}
-    if(!count($statusError)){
-        list  ($boolError, $textError)=$Checks->authenticationPerson($personId, $personIdentification);
-        if($boolError){array_push($statusError, $textError);}
-    }
-    unset($personIdentification);
-    if(count($statusError)){
-        exit('<div class="modal"><p>Ошибка Аутентификации!</p></div>
-            <script  type="text/javascript">
-             setTimeout(function(){
-                window.location.href = "/cabinet/authorization.php";
-            }, 500);
-            </script>');
-    }
+    require_once($_SERVER['DOCUMENT_ROOT'].'/root/files/template/authenticationPerson.php');
 
     //проверка принадлежности продукта к человеку
     list  ($productId, $boolError, $textError)=$CleanFormProduct->id($_COOKIE['lastEditResidenceId']);
@@ -112,21 +95,30 @@
                 $sizeBytes=filesize($file['tmp_name']);
 
                 // Проверим нужные параметры
-                if ($sizeBytes > $limitBytes) {$statusError.= 'Размер изображения не должен превышать 5 Мбайт. '; continue;}
-                if ($image[1] > $limitHeightMax) {$statusError.= 'Высота изображения не должна превышать 2300 пикселей. '; continue;}
-                if ($image[1] < $limitHeightMin) {$statusError.= 'Высота изображения не должна быть меньше 200 пикселей. '; continue;}
-                if ($image[0] > $limitWidthMax) {$statusError.= 'Ширина изображения не должна превышать 2300 пикселей. '; continue;}
-                if ($image[0] < $limitWidthMin) {$statusError.= 'Ширина изображения не должна быть меньше 200 пикселей. '; continue;}
-
+                if ($sizeBytes > $limitBytes) {$statusError.= 'Размер изображения не должен превышать 10 Мбайт. '; continue;}
+                if ($sizeHeight > $limitHeightMax) {$statusError.= 'Высота изображения не должна превышать 12500 пикселей. '; continue;}
+                if ($sizeHeight < $limitHeightMin) {$statusError.= 'Высота изображения не должна быть меньше 200 пикселей. '; continue;}
+                if ($sizeWidth > $limitWidthMax) {$statusError.= 'Ширина изображения не должна превышать 12500 пикселей. '; continue;}
+                if ($sizeWidth < $limitWidthMin) {$statusError.= 'Ширина изображения не должна быть меньше 200 пикселей. '; continue;}
+                $new_sizeHeight=$new_sizeWidth=0;
+                if($sizeHeight>=$sizeWidth){
+                    $new_sizeWidth=$sizeWidth*(1200/$sizeHeight);
+                    $new_sizeHeight=1200;
+                }else{
+                    $new_sizeHeight=$sizeHeight*(1200/$sizeWidth);
+                    $new_sizeWidth=1200;
+                }
                 // Сгенерируем новое имя
                 $namePhoto=md5_file($file['tmp_name']);
                 $namePhoto=rand(0,9).substr($namePhoto,0,10).''.time();
 
+                $image_p = imagecreatetruecolor($new_sizeWidth, $new_sizeHeight);
                 $source=($image[2]==2 ? imagecreatefromjpeg($file['tmp_name']) : imagecreatefrompng($file['tmp_name']));
-
+                imagecopyresampled($image_p, $source, 0, 0, 0, 0, $new_sizeWidth, $new_sizeHeight, $sizeWidth, $sizeHeight);
 
                 // Переместим картинку с новым именем и расширением в папку /photo/userId/productId
-                if (imagejpeg($source, $dir2 . $namePhoto .'.jpg', 75)) {
+                if (imagejpeg($image_p, $dir2 . $namePhoto .'.jpg', 79)) {
+                    imagedestroy($source);//Чистим память
                     $statusError.= 'Запись изображения на диск успешна. ';
                     $namePhoto.='.jpg';
                     $path="/photo/".$personId."/".$productId."/";
@@ -141,6 +133,7 @@
         }
         if($countPhoto>=1){
             setcookie('lastResidenceId','',0,'/');//удалим куку
+            $MyResidence->_mail('new_photoResidence', $personId);
             exit('<div class="modal"><p>Отправленно на рассмотрение фотографий: '.$countPhoto.'!</p></div>
                 <script  type="text/javascript">
                      setTimeout(function(){

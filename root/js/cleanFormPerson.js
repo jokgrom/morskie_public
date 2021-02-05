@@ -58,7 +58,7 @@ function check_personMail(personMail){
 
 function check_personDescription(personDescription){
     personDescription=personDescription.replace(regular_personText,'');
-    personDescription=personDescription.substr(0, 1000);
+    personDescription=personDescription.substr(0, 2000);
     if(personDescription.toString().length<3){
         return {description: personDescription, color : colorError, boolError: true, textError : 'слишком короткий текст'};
     }else{
@@ -89,7 +89,7 @@ function check_typeMessage(typeMessage){
 
 function check_Message(message){
     message=message.replace(regular_personText, '');
-    message=message.substr(0, 12);
+    message=message.substr(0, 2000);
     if(message.toString().length<3){
         return {message: message, color: colorError, boolError: true, textError: 'короткое сообщение'};
     }else{

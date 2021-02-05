@@ -13,46 +13,12 @@
     $CleanFormPerson=new CleanFormPerson;
     $CleanFormProduct= new CleanFormProduct();
     $Checks=new Checks($db);
+
     //проверка аутентификации
-    list  ($personId, $boolError, $textError)=$CleanFormPerson->personId($_COOKIE['person_id']);
-    if($boolError){array_push($statusError, $textError);}
-
-    list  ($personIdentification, $boolError, $textError)=$CleanFormPerson->personIdentification($_COOKIE['person_identification']);
-    if($boolError){array_push($statusError, $textError);}
-    if(!count($statusError)){
-        list  ($boolError, $textError)=$Checks->authenticationPerson($personId, $personIdentification);
-        if($boolError){array_push($statusError, $textError);}
-    }
-    unset($personIdentification);
-    if(count($statusError)){
-        exit('<div class="modal"><p>Ошибка Аутентификации!</p></div>
-            <script  type="text/javascript">
-             setTimeout(function(){
-                window.location.href = "/cabinet/authorization.php";
-            }, 500);
-            </script>');
-    }
+    require_once($_SERVER['DOCUMENT_ROOT'].'/root/files/template/authenticationPerson.php');
 
 
-
-    $product=$_GET['product']; //снять комент потом
-    //$product["title"]='название';
-    //$product["city"]='2';
-    //$product["suburb"]='14';
-    //$product["guest"]='2';
-    //$product["typeHousing"]='4';
-    //$product["distance"]='3';
-    //$product["adOwner"]='1';
-    //$product["rules"]='правилаа';
-    //$product["description"]='описаниее';
-    //$product["address"]='Россия, Краснодарский край, Анапа, Озёрная улица';
-    //$product["addressLatitude"]='43.585472';
-    //$product["addressLongitude"]='39.723089';
-    //$product["contacts"]='контактыы';
-    //$product["conveniences"]=array("27", "30", "31");
-    //$product["price"]=array(0, 0, 222, 0, 0, 0, 0, 0, 0, 0, 0, 333);
-
-
+    $product=$_POST['product']; //снять комент потом
     //ищём ошибки
     list  ($product["id"], $boolError, $textError)=$CleanFormProduct->id($product["id"]);
     if($boolError){array_push($statusError, $textError);}

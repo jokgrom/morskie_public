@@ -14,10 +14,10 @@
 <body>
 	<h3 style="text-align: center;">Хьюстон, у нас проблемы.</h3>
     <h1 style="text-align: center;">Страница, которую вы ищете не была найдена.</h1>
-	<h2 style="text-align: center;"><a href="/" style= "font-size: 18px;">Перенаправляем на Главную страницу...</a></h2>
+	<h2 style="text-align: center;"><a href="/" style= "font-size: 18px;">Перенаправляем на Главную страницу. С любовью, ваш Админ 🙂</a></h2>
 	<script type="text/javascript">
 		setTimeout(function(){
- 		 	window.location.href = 'http:/';
+ 		 	window.location.href = 'https://morskie-puti.ru';
 		}, 4 * 1000);
 	</script>
 </body>

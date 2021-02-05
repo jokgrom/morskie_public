@@ -71,13 +71,15 @@ switch ($url){
     default:
         $pageInfo['title']='Сервис подбора жилья у моря без посредников. Снять или сдать жильё у моря может каждый.';
 }
-    $updateUrlHash='?h=161146';
+    $updateUrlHash='?h=161210';
+    $BettaV='161.210';
 ?>
 <title><?php echo $pageInfo['title']; ?></title>
 <meta charset="utf-8" />
 <link rel="shortcut icon" href="/favicon.ico">
 <meta content="text/javascript" />
 <meta content="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="/root/css/main.css<?php echo $updateUrlHash; ?>" type="text/css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -91,4 +93,20 @@ switch ($url){
 <meta name="description" content="<?php echo $pageInfo['description']; ?>">
 <meta name="keywords" content="<?php echo $pageInfo['keywords']; ?>">
 <script src="/root/js/functions.js<?php echo $updateUrlHash; ?>"></script>
-<?php unset($pageInfo);?>
+<?php unset($pageInfo, $updateUrlHash);?>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(71666248, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/71666248" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->

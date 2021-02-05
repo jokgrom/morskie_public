@@ -219,7 +219,7 @@ $(function(){
 			$(".info-text").html(statusError.join(""));
 		}else{
 			$(".info-text").html('');
-			$.get('app/edit1.php',  {product}, function(data) {
+			$.post('app/edit1.php',  {product}, function(data) {
 				$('#getApp').html(data);
 			});
 		}

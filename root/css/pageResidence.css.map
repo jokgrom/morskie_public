@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACC,oCAAoB;EAAC,KAAK,EAAC,GAAG;AAC9B,8BAAc;EAAC,KAAK,EAAC,GAAG",
-"sources": ["pageResidence.scss"],
-"names": [],
-"file": "pageResidence.css"
-}

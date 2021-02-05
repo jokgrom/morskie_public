@@ -13,9 +13,6 @@
     $CleanFormPerson= new CleanFormPerson();
     $Checks=new Checks($db);
     $statusError=[];
-//    $person["phone"]=89999999915;
-//    $person["password"]=555;
-   // $person["password2"]='55d5';
 
 	//ищём ошибки
 	list  ($person["phone"], $boolError, $textError)=$CleanFormPerson->phone($person["phone"]);
@@ -56,8 +53,8 @@
         }else{
             if($Landlord->registration($person["phone"], $person["password"], $personIp)){
                 exit('<script type="text/javascript">
-		            setTimeout(function(){
-		            window.location.href = "/cabinet/residence/";
+		            setTimeout(function(){ 
+		            window.location.href = "/cabinet/residence/add/step1.php";
 		        }, 500);
 		        </script>');
             }else{

@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /cabinet
+Disallow: /lord
+Disallow: /root
+Disallow: /.htaccess
+Disallow: /404.php
+
+Host: morskie-puti.ru
+Sitemap: https://morskie-puti.ru/Sitemap.xml

@@ -1,14 +1,18 @@
 RewriteEngine On
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
 AddDefaultCharset UTF-8
 
+ErrorDocument 403 /403.php
 ErrorDocument 404 /404.php
 
-#RewriteCond %{REQUEST_URI} ^/nomer/ 
-#RewriteRule ^nomer/([^/\.]+)$ ^nomer/index.php?id=$1 [L]
-
-
-
-
-#RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^residence/([^/\.]+)$ /residence/index.php?id=$1 [NC,L]
+
+# запрет выдачи листинга
+Options -Indexes
+
+<Files ~ "app\/\.php$">
+  Order allow,deny
+  Deny from all
+</Files>

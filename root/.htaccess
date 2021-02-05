@@ -1,0 +1,12 @@
+<Files ~ "\.php$">
+  Order allow,deny
+  Deny from all
+</Files>
+
+<Files "update-location.php">
+  Order deny,allow
+</Files>
+
+<Files "verify-address.php">
+  Order deny,allow
+</Files>

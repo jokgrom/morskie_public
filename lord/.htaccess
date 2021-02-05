@@ -1,0 +1,5 @@
+Order deny,allow
+Deny from all
+#указать свой ip
+allow from 178.155.4.49
+allow from 178.155.4.47

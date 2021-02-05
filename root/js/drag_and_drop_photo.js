@@ -18,6 +18,7 @@ function f_drag(event){
 	event.dataTransfer.setData('id_transfer_id', this.parentNode.id); //в дататрансфер добавляем значение ид перетаскиваемого элемента
 }
 function f_drop(event){
+	event.preventDefault(); //отмена стандартных событий
 	// this.style.opacity='1';
 	var id_place =event.target.id;
 	var tagName=event.target.tagName;

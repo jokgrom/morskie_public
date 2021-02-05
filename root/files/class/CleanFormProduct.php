@@ -17,8 +17,8 @@ class CleanFormProduct extends CleanForm
 
     function title($title){
         $title=parent::clean($title);
-        $title=preg_replace('/[^a-zA-Zа-яА-ЯёЁ0-9_ -]/u','', $title);
-        $title=mb_substr($title, 0, 30);
+        $title=preg_replace('/[^a-zA-Zа-яА-ЯёЁ0-9_ -«»]/u','', $title);
+        $title=mb_substr($title, 0, 60);
         if(mb_strlen($title, 'utf8')<3){
             return array ($title, true, 'не заполнено поле "Название объявления"');
         }else{
@@ -101,7 +101,7 @@ class CleanFormProduct extends CleanForm
     function rules($rules){
         $rules=parent::clean($rules);
         $rules=preg_replace('/[^a-zA-Zа-яА-ЯёЁ0-9_ \n\-(){}\[\]\/.,;:@!?#№=+]/u','', $rules);
-        $rules=mb_substr($rules, 0, 1000);
+        $rules=mb_substr($rules, 0, 2000);
         if(mb_strlen($rules, 'utf8')<3){
             return array ($rules, true, 'не заполнено поле "Правила и ограничения"');
         }else{
@@ -112,7 +112,7 @@ class CleanFormProduct extends CleanForm
     function description($description){
         $description=parent::clean($description);
         $description=preg_replace('/[^a-zA-Zа-яА-ЯёЁ0-9_ \n\-(){}\[\]\/.,;:@!?#№=+]/u','', $description);
-        $description=mb_substr($description, 0, 1000);
+        $description=mb_substr($description, 0, 2000);
         if(mb_strlen($description, 'utf8')<3){
             return array ($description, true, 'не заполнено поле "Описание"');
         }else{
@@ -123,7 +123,7 @@ class CleanFormProduct extends CleanForm
     function address($address){
         $address=parent::clean($address);
         $address=preg_replace('/[^a-zA-Zа-яА-ЯёЁ0-9_ \-(){}\[\]\/.,;:@!?#№=+]/u','', $address);
-        $address=mb_substr($address, 0, 1000);
+        $address=mb_substr($address, 0, 2000);
         if(mb_strlen($address, 'utf8')<3){
             return array ($address, true, 'не корректный адрес');
         }else{
@@ -146,7 +146,7 @@ class CleanFormProduct extends CleanForm
     function contacts($contacts){
         $contacts=parent::clean($contacts);
         $contacts=preg_replace('/[^a-zA-Zа-яА-ЯёЁ0-9_ \n\-(){}\[\]\/.,;:@!?#№=+]/u','', $contacts);
-        $contacts=mb_substr($contacts, 0, 1000);
+        $contacts=mb_substr($contacts, 0, 2000);
         if(mb_strlen($contacts, 'utf8')<3){
             return array ($contacts, true, 'не заполнено поле "Контакты"');
         }else{

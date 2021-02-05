@@ -7,7 +7,7 @@ const regular_productAddress_coordinates=/[^0-9,.]/g;
 
 function check_productTitle(productTitle){
     productTitle=productTitle.replace(regular_productTitle,'');
-    productTitle=productTitle.substr(0, 30);
+    productTitle=productTitle.substr(0, 60);
     if(productTitle.toString().length<3){
         return {title: productTitle, color : colorError, boolError: true, textError : 'не заполнено поле "Название объявления"'};
     }else{
@@ -84,7 +84,7 @@ function check_productAdOwner(productAdOwner){
 
 function check_productRules(productRules){
     productRules=productRules.replace(regular_productText,'');
-    productRules=productRules.substr(0, 1000);
+    productRules=productRules.substr(0, 2000);
     if(productRules.toString().length<3){
         return {rules: productRules, color : colorError, boolError: true, textError : 'не заполнено поле "Правила и ограничения"'};
     }else{
@@ -94,7 +94,7 @@ function check_productRules(productRules){
 
 function check_productDescription(productDescription){
     productDescription=productDescription.replace(regular_productText,'');
-    productDescription=productDescription.substr(0, 1000);
+    productDescription=productDescription.substr(0, 2000);
     if(productDescription.toString().length<3){
         return {description: productDescription, color : colorError, boolError: true, textError : 'не заполнено поле "Описание"'};
     }else{
@@ -125,7 +125,7 @@ function check_productAddressCoordinates(productAddressCoordinates){
 
 function check_productContacts(productContacts){
     productContacts=productContacts.replace(regular_productText,'');
-    productContacts=productContacts.substr(0, 1000);
+    productContacts=productContacts.substr(0, 2000);
     if(productContacts.toString().length<3){
         return {contacts: productContacts, color : colorError, boolError: true, textError : 'не заполнено поле "Контакты"'};
     }else{

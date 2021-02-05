@@ -75,12 +75,13 @@
 	display: flex;
 	flex-wrap: wrap;
 	&>.cell {
+		display: block;
 		margin: 0.25rem;
 		padding: 0.1875rem 0.3125rem;
 		// background-color: rgba(212, 35, 35, 0.73);
 		border: 0.0625rem solid #dee4e6; //dee4e6
 		border-radius: 0.125rem;
-		color:#000;
+		color:#3a3a3a;
 		font-family: PhilosopherRegular;
 		font-size: 90%;
 		line-height: 1.2rem;

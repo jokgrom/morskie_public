@@ -26,16 +26,17 @@
              return $convenienceContent;
          }
 
+
          protected function _getPrice($residencePrice){
              $priceList=json_decode($residencePrice);
              $monthArray=["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"];
              $key=date('n');
              $priceContent='';
-             for($i=1; $i<=5; $i++){
-                 $price=($priceList->$i>50 ? $priceList->$i.' &#8381;' :'—' );
+             for($i=0; $i<=4; $i++){
+                 $price=($priceList->$key>50 ? $priceList->$key.' &#8381;' :'—' );
                  $priceContent.='<li>'.$monthArray[$key-1].': '.$price.'</li>';
                  $key=$key+1;
-                 if($key>12){$key=1;}
+                 if($key>=12){$key=1;}
              }
              return $priceContent;
          }
@@ -85,7 +86,7 @@
                      $queryOrderBy=" ORDER BY JSON_EXTRACT(prices, '$.".$month."') DESC";
                      break;
                  default:
-                     $queryOrderBy=' ORDER BY residence.id';
+                     $queryOrderBy=' ORDER BY residence.date_added DESC';
              }
              $queryGroupBy=' GROUP BY residence.id';
 
@@ -130,7 +131,7 @@
                  $queryCOUNT.=' AND '.$queryWhere;
              }
 
-             $maxCountProduct=15;
+             $maxCountProduct=10;
              if($product['page']!=0){
                  $from=$product['page']*$maxCountProduct-$maxCountProduct;
                  $queryLimit=' LIMIT '.$from.','.$maxCountProduct;
@@ -160,14 +161,18 @@
                  }
              }
              $countPage=ceil($countProduct/$maxCountProduct);
-             $paginationBack=($product['page']-1>=1 ? '<span><a href="/residences/?page='.($product['page']-1).'">← Пред.</a></span>' :'');
-             $paginationForward=($product['page']+1<=$countPage ? '<span><a href="/residences/?page='.($product['page']+1).'">След. →</a></span>' : '');
+             $paginationBack=($product['page']-1>=1 ? '<a href="/residences/?page='.($product['page']-1).'">← Пред.</a>' :'');
+             if($product['page']==0){
+                 $paginationForward='<a href="/residences/?page=2">След. →</a>';
+             }else{
+                 $paginationForward=($product['page']+1<=$countPage ? '<a href="/residences/?page='.($product['page']+1).'">След. →</a>' : '');
+             }
              $pageFirst=($product['page']-5>1 ? $product['page']-5 : 1);
              $pageLast=($product['page']+5<$countPage ? $product['page']+5 : $countPage);
              $pagination='';
              for($i=$pageFirst; $i<=$pageLast; $i++){
                  if($i==$product['page']){
-                     $pagination.='<span><a href="/residences/?page='.$i.'" class="pagination-main-page">'.$i.'</a></span>';
+                     $pagination.='<a href="/residences/?page='.$i.'" class="pagination-main-page">'.$i.'</a>';
                  }else{
                      $pagination.='<a href="/residences/?page='.$i.'">'.$i.'</a></span>';
                  }
