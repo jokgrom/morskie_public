@@ -1,6 +1,6 @@
-const regular_productTitle=/[^a-zA-Zа-яА-ЯёЁ0-9_ -]/g;
+const regular_productTitle=/[^a-zA-Zа-яА-ЯёЁ0-9_ \-«»№]/g;
 const regular_productNumber=/[^0-9]/g;
-const regular_productText=/[^a-zA-Zа-яА-ЯёЁ0-9_ \n\-(){}\[\]\/.,;:@!?#№=+]/g;
+const regular_productText=/[^a-zA-Zа-яА-ЯёЁ0-9_ \n\-(){}\[\]\/.,;:@!?#№=+«»]/g;
 const regular_productAddress=/[^a-zA-Zа-яА-ЯёЁ0-9_ \-\/.,]/g;
 
 const regular_productAddress_coordinates=/[^0-9,.]/g;

@@ -71,13 +71,13 @@
         default:
             $pageInfo['title']='Сервис подбора жилья у моря без посредников. Снять или сдать жильё у моря может каждый.';
     }
-    $updateUrlHash='?h=161213';
-    $BettaV='161.213';
+    $updateUrlHash='?h=161214';
+    $BettaV='161.214';
     if($_COOKIE['BettaV']!=$BettaV){
-        header('Cache-Control: private, no-cache="set-cookie"');
-        header('Expires: 0');
-        header('Pragma: no-cache');
-        setcookie('BettaV',$BettaV,time() + (3600*24*365),'/'); //перезапишем версию сайта
+//        header('Cache-Control: private, no-cache="set-cookie"');
+//        header('Expires: 0');
+//        header('Pragma: no-cache');
+//        setcookie('BettaV',$BettaV,time() + (3600*24*365),'/'); //перезапишем версию сайта
     }
 ?>
 <title><?php echo $pageInfo['title']; ?></title>

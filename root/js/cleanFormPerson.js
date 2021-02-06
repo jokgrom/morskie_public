@@ -3,7 +3,7 @@ const regular_personPassword=/[\W]/;
 const regular_personNumber=/[^0-9]/g;
 const regular_personMail=/[^a-zA-Z0-9_\-.@]/g;
 const regularTest_personMail=/^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
-const regular_personText=/[^a-zA-Zа-яА-ЯёЁ0-9_ \n\-(){}\[\]\/.,;:@!?#№=+]/g;
+const regular_personText=/[^a-zA-Zа-яА-ЯёЁ0-9_ \n\-(){}\[\]\/.,;:@!?#№=+«»]/g;
 const regular_personName_ru=/[^а-яА-ЯёЁ]/g;
 const colorError='#fcc', colorNoError='#fff';
 
