@@ -69,7 +69,7 @@
                                 <input class="filter reset" type="button" value="сбросить фильтр">
                             </div>
                         </aside>
-                        <h1><?php echo $TemplateProduct->html_h1($product); ?></h1>
+                        <p><?php echo $TemplateProduct->html_h1($product); ?></p>
                         <div id="product-box"><?php  $Residence->getAll($product);?></div>
                     </main>
                 </div>

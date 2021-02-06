@@ -460,27 +460,27 @@
                 if($product["sort"]==2){$h1['sort']='сортировать: по возростанию цены';}
                 if($product["sort"]==3){$h1['sort']='сортировать: по убыванию цены';}
             }
+            $h1_city=$h1_suburb=$h1_guest=$h1_typeHousing=$h1_distance=$h1_priceFrom=$h1_priceTo=$h1_priceMonth=$h1_adOwner=$h1_sort='';
             if(count($querySelect)>=1){
                 $querySelect=join($querySelect, ' , ');
                 $queryFrom=join($queryFrom, ' , ');
                 $queryWhere=join($queryWhere, ' AND ');
-            }
 
-            $query="SELECT $querySelect FROM $queryFrom WHERE $queryWhere";
-            $data =$this->db->query($query);
-            $html_h1=[];
-            if(is_object($data)){
-                foreach($data  as $cell) {
-                    $h1_city=($h1['city'] ? $h1['city'].$cell['city'].',' : '');
-                    $h1_suburb=($cell['suburb'] ? $h1['suburb'].$cell['suburb'].',' : '');
-                    $h1_guest=($h1['guest'] ? $h1['guest'].$cell['guest'].',' : '');
-                    $h1_typeHousing=($h1['typeHousing'] ? $h1['typeHousing'].$cell['typeHousing'].',' : '');
-                    $h1_distance=($h1['distance'] ? $h1['distance'].$cell['distance'].',' : '');
-                    $h1_priceFrom=($h1['priceFrom'] ? $h1['priceFrom'].$cell['priceFrom'].',' : '');
-                    $h1_priceTo=($h1['priceTo'] ? $h1['priceTo'].$cell['priceTo'].',' : '');
-                    $h1_priceMonth=($h1['priceMonth'] ? $h1['priceMonth'].$cell['priceMonth'].',' : '');
-                    $h1_adOwner=($h1['adOwner'] ? $h1['adOwner'].$cell['adOwner'].',' : '');
-                    $h1_sort=($h1['sort'] ? $h1['sort'].$cell['sort'].',' : '');
+                $query="SELECT $querySelect FROM $queryFrom WHERE $queryWhere";
+                $data =$this->db->query($query);
+                if(is_object($data)){
+                    foreach($data  as $cell) {
+                        $h1_city=($h1['city'] ? $h1['city'].$cell['city'].',' : '');
+                        $h1_suburb=($cell['suburb'] ? $h1['suburb'].$cell['suburb'].',' : '');
+                        $h1_guest=($h1['guest'] ? $h1['guest'].$cell['guest'].',' : '');
+                        $h1_typeHousing=($h1['typeHousing'] ? $h1['typeHousing'].$cell['typeHousing'].',' : '');
+                        $h1_distance=($h1['distance'] ? $h1['distance'].$cell['distance'].',' : '');
+                        $h1_priceFrom=($h1['priceFrom'] ? $h1['priceFrom'].$cell['priceFrom'].',' : '');
+                        $h1_priceTo=($h1['priceTo'] ? $h1['priceTo'].$cell['priceTo'].',' : '');
+                        $h1_priceMonth=($h1['priceMonth'] ? $h1['priceMonth'].$cell['priceMonth'].',' : '');
+                        $h1_adOwner=($h1['adOwner'] ? $h1['adOwner'].$cell['adOwner'].',' : '');
+                        $h1_sort=($h1['sort'] ? $h1['sort'].$cell['sort'].',' : '');
+                    }
                 }
             }
             return "Поиск жилья у моря <span class='h1_city'>$h1_city</span> <span class='h1_suburb'>$h1_suburb</span> ".
