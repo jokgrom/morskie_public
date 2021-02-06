@@ -125,8 +125,13 @@ html {
 	}
 }
 
-.convenience .strong {
-	margin-top: 0.94rem;
+.convenience {
+	.strong {
+		margin-top: 0.94rem;
+	}
+	label:hover {
+		cursor: pointer;
+	}
 }
 
 

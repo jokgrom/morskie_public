@@ -31,6 +31,9 @@
     $product["conveniences"] = explode("_", $product["conveniences"]);
     $product["conveniences"] = array_diff($product["conveniences"], array(''));
     $product["page"]=$CleanForm->number($_GET["page"]);
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -66,6 +69,7 @@
                                 <input class="filter reset" type="button" value="сбросить фильтр">
                             </div>
                         </aside>
+                        <h1><?php echo $TemplateProduct->html_h1($product); ?></h1>
                         <div id="product-box"><?php  $Residence->getAll($product);?></div>
                     </main>
                 </div>

@@ -321,18 +321,18 @@
             }
             return '<select class="filter filter-price">
                 <option '.$selected[0].' value="0">Цена в</option>
-                <option '.$selected[1].' value="1">в Январе</option>
-                <option '.$selected[2].' value="2">в Феврале</option>
-                <option '.$selected[3].' value="3">в Марте</option>
-                <option '.$selected[4].' value="4">в Апреле</option>
-                <option '.$selected[5].' value="5">в Мае</option>
-                <option '.$selected[6].' value="6">в Июне</option>
-                <option '.$selected[7].' value="7">в Июле</option>
-                <option '.$selected[8].' value="8">в Августе</option>
-                <option '.$selected[9].' value="9">в Сентябре</option>
-                <option '.$selected[10].' value="10">в Октябре</option>
-                <option '.$selected[11].' value="11">в Ноябре</option>
-                <option '.$selected[12].' value="12">в Декабре</option>
+                <option '.$selected[1].' value="1">в январе</option>
+                <option '.$selected[2].' value="2">в феврале</option>
+                <option '.$selected[3].' value="3">в марте</option>
+                <option '.$selected[4].' value="4">в апреле</option>
+                <option '.$selected[5].' value="5">в мае</option>
+                <option '.$selected[6].' value="6">в июне</option>
+                <option '.$selected[7].' value="7">в июле</option>
+                <option '.$selected[8].' value="8">в августе</option>
+                <option '.$selected[9].' value="9">в сентябре</option>
+                <option '.$selected[10].' value="10">в октябре</option>
+                <option '.$selected[11].' value="11">в ноябре</option>
+                <option '.$selected[12].' value="12">в декабре</option>
             </select>';
         }
 
@@ -368,4 +368,125 @@
             }
             return '<ul>'.$listSuburb.'</ul>';
         }
+
+
+        function html_h1($product){
+            $querySelect=[];
+            $queryFrom=[];
+            $queryWhere=[];
+            $h1=[];
+            if($product["city"]!=''){
+                array_push($querySelect, 'city.title AS `city`');
+                array_push($queryFrom, 'city');
+                array_push($queryWhere, 'city.id='.$product['city']);
+                $h1['city']='г. ';
+            }
+            if($product["suburb"]!=''){
+                array_push($querySelect, 'city2.title AS `suburb`');
+                array_push($queryFrom, 'city AS `city2`');
+                array_push($queryWhere, 'city2.id='.$product['suburb']);
+            }
+            if($product["guest"]!=''){
+                array_push($querySelect, 'guest.title AS `guest`');
+                array_push($queryFrom, 'guest');
+                array_push($queryWhere, 'guest.id='.$product['guest']);
+                $h1['guest']='вместительность номера: ';
+            }
+            if($product["typeHousing"]!=''){
+                array_push($querySelect, 'type_housing.title AS `typeHousing`');
+                array_push($queryFrom, 'type_housing');
+                array_push($queryWhere, 'type_housing.id='.$product['typeHousing']);
+                $h1['typeHousing']='тип жилья: ';
+            }
+            if($product["distance"]!=''){
+                array_push($querySelect, 'distance.title AS `distance`');
+                array_push($queryFrom, 'distance');
+                array_push($queryWhere, 'distance.id='.$product['distance']);
+                $h1['distance']='до моря: ';
+            }
+            if($product["priceFrom"]!=''){
+                $h1['priceFrom']='цена от: '.$product["priceFrom"];
+            }
+            if($product["priceTo"]!=''){
+                $h1['priceTo']='цена до: '.$product["priceTo"];
+            }
+            if($product["priceMonth"]!=''){
+                switch ($product["priceMonth"]){
+                    case '1':
+                        $h1['priceMonth']='цена: в январе';
+                        break;
+                    case '2':
+                        $h1['priceMonth']='цена: в феврале';
+                        break;
+                    case '3':
+                        $h1['priceMonth']='цена: в марте';
+                        break;
+                    case '4':
+                        $h1['priceMonth']='цена: в апреле';
+                        break;
+                    case '5':
+                        $h1['priceMonth']='цена: в мае';
+                        break;
+                    case '6':
+                        $h1['priceMonth']='цена: в июне';
+                        break;
+                    case '7':
+                        $h1['priceMonth']='цена: в июле';
+                        break;
+                    case '8':
+                        $h1['priceMonth']='цена: в августе';
+                        break;
+                    case '9':
+                        $h1['priceMonth']='цена: в сентябре';
+                        break;
+                    case '10':
+                        $h1['priceMonth']='цена: в октябре';
+                        break;
+                    case '11':
+                        $h1['priceMonth']='цена: в ноябре';
+                        break;
+                    case '12':
+                        $h1['priceMonth']='цена: в декабре';
+                        break;
+                }
+            }
+            if($product["adOwner"]!=''){
+                array_push($querySelect, 'ad_owner.title AS `adOwner`');
+                array_push($queryFrom, 'ad_owner');
+                array_push($queryWhere, 'ad_owner.id='.$product['adOwner']);
+                $h1['adOwner']='владелец объявления: ';
+            }
+            if($product["sort"]!=''){
+                if($product["sort"]==2){$h1['sort']='сортировать: по возростанию цены';}
+                if($product["sort"]==3){$h1['sort']='сортировать: по убыванию цены';}
+            }
+            if(count($querySelect)>=1){
+                $querySelect=join($querySelect, ' , ');
+                $queryFrom=join($queryFrom, ' , ');
+                $queryWhere=join($queryWhere, ' AND ');
+            }
+
+            $query="SELECT $querySelect FROM $queryFrom WHERE $queryWhere";
+            $data =$this->db->query($query);
+            $html_h1=[];
+            if(is_object($data)){
+                foreach($data  as $cell) {
+                    $h1_city=($h1['city'] ? $h1['city'].$cell['city'].',' : '');
+                    $h1_suburb=($cell['suburb'] ? $h1['suburb'].$cell['suburb'].',' : '');
+                    $h1_guest=($h1['guest'] ? $h1['guest'].$cell['guest'].',' : '');
+                    $h1_typeHousing=($h1['typeHousing'] ? $h1['typeHousing'].$cell['typeHousing'].',' : '');
+                    $h1_distance=($h1['distance'] ? $h1['distance'].$cell['distance'].',' : '');
+                    $h1_priceFrom=($h1['priceFrom'] ? $h1['priceFrom'].$cell['priceFrom'].',' : '');
+                    $h1_priceTo=($h1['priceTo'] ? $h1['priceTo'].$cell['priceTo'].',' : '');
+                    $h1_priceMonth=($h1['priceMonth'] ? $h1['priceMonth'].$cell['priceMonth'].',' : '');
+                    $h1_adOwner=($h1['adOwner'] ? $h1['adOwner'].$cell['adOwner'].',' : '');
+                    $h1_sort=($h1['sort'] ? $h1['sort'].$cell['sort'].',' : '');
+                }
+            }
+            return "Поиск жилья у моря <span class='h1_city'>$h1_city</span> <span class='h1_suburb'>$h1_suburb</span> ".
+                "<span class='h1_guest'>$h1_guest</span> <span class='h1_typeHousing'>$h1_typeHousing</span> <span class='h1_distance'>$h1_distance</span> ".
+                "<span class='h1_priceFrom'>$h1_priceFrom</span> <span class='h1_priceTo'>$h1_priceTo</span> <span class='h1_priceMonth'>$h1_priceMonth</span> ".
+                "<span class='h1_adOwner'>$h1_adOwner</span> <span class='h1_sort'>$h1_sort</span>";
+        }
+
     }

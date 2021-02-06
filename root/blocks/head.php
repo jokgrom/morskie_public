@@ -44,7 +44,7 @@ switch ($url){
 
         list  ($productId, $boolError, $textError)=$CleanFormProduct->id($_GET['id']);
         $Residence->getInfo($productId);
-        $pageInfo['title']=$Residence->title;
+        $pageInfo['title']=$Residence->title.' | '.$Residence->cityTitle.', '.$Residence->suburbTitle;
 
         $description=mb_substr($Residence->description, 0, 250);
         $pageInfo['description']=$description;

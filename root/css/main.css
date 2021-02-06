@@ -407,6 +407,8 @@ input[type=button] {
 
 .convenience .strong {
   margin-top: 0.94rem; }
+.convenience label:hover {
+  cursor: pointer; }
 
 .modal {
   position: fixed;

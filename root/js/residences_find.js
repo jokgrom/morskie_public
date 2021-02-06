@@ -60,8 +60,14 @@ $(function() {
         var newUrl='';
         if(value!=='0'){
             if(url.includes(key)){
-                newUrl=url.replace(regular,key+'='+value);
-                history.pushState('', '', newUrl);
+                if(key==='city'){
+                    newUrl=url.replace(/&suburb=[\d]*/g,'');
+                    newUrl=newUrl.replace(regular,key+'='+value);
+                    history.pushState('', '', newUrl);
+                }else{
+                    newUrl=url.replace(regular,key+'='+value);
+                    history.pushState('', '', newUrl);
+                }
             }else{
                 if(url.includes('?')){
                     history.pushState('', '', url+'&'+key+'='+value);
@@ -185,31 +191,69 @@ $(function() {
             $('.filter-suburb').html(data);
         });
         searchProduct();
+        if($(this).val()!=0){
+            var h1_city=$(this).find('option:selected').text();
+            $('.h1_city').html('г. '+h1_city+',');
+        }else{
+            $('.h1_city').html('');
+        }
+        $('.h1_suburb').html('');
     });
 
     formFilterSuburb.on("change",function(){
         editUrl('suburb',formFilterSuburb.val());
         searchProduct();
+        if($(this).val()!=0){
+            var h1_suburb=$(this).find('option:selected').text();
+            $('.h1_suburb').html(h1_suburb+',');
+        }else{
+            $('.h1_suburb').html('');
+        }
     });
 
     formFilterGuest.on("change",function(){
         editUrl('guest',formFilterGuest.val());
         searchProduct();
+        console.log($(this).val());
+        if($(this).val()!=0){
+            var h1_guest=$(this).find('option:selected').text();
+            $('.h1_guest').html('вместительность номера: '+h1_guest+',');
+        }else{
+            $('.h1_guest').html('');
+        }
     });
 
     formFilterTypeHousing.on("change",function(){
         editUrl('typeHousing',formFilterTypeHousing.val());
         searchProduct();
+        if($(this).val()!=0){
+            var h1_typeHousing=$(this).find('option:selected').text();
+            $('.h1_typeHousing').html('тип жилья: '+h1_typeHousing+',');
+        }else{
+            $('.h1_typeHousing').html('');
+        }
     });
 
     formFilterDistance.on("change",function(){
         editUrl('distance',formFilterDistance.val());
         searchProduct();
+        if($(this).val()!=0){
+            var h1_distance=$(this).find('option:selected').text();
+            $('.h1_distance').html('до моря: '+h1_distance+',');
+        }else{
+            $('.h1_distance').html('');
+        }
     });
 
     formFilterAdOwner.on("change",function(){
         editUrl('adOwner',formFilterAdOwner.val());
         searchProduct();
+        if($(this).val()!=0){
+            var h1_adOwner=$(this).find('option:selected').text();
+            $('.h1_adOwner').html('владелец объявления: '+h1_adOwner+',');
+        }else{
+            $('.h1_adOwner').html('');
+        }
     });
 
     formPriceFrom.on("keyup",function(){
@@ -244,17 +288,45 @@ $(function() {
         }
     });
 
-    formPriceFrom.on("change",function(){ searchProduct();});
-    formPriceTo.on("change",function(){searchProduct();});
+    formPriceFrom.on("change",function(){
+        searchProduct();
+        if($(this).val()!=0){
+            var h1_priceFrom=$(this).val();
+            $('.h1_priceFrom').html('цена от: '+h1_priceFrom+',');
+        }else{
+            $('.h1_priceFrom').html('');
+        }
+    });
+    formPriceTo.on("change",function(){
+        searchProduct();
+        if($(this).val()!=0){
+            var h1_priceTo=$(this).val();
+            $('.h1_priceTo').html('цена до: '+h1_priceTo+',');
+        }else{
+            $('.h1_priceTo').html('');
+        }
+    });
 
     formPriceMonth.on("change",function(){
         editUrl('priceMonth',formPriceMonth.val());
         searchProduct();
+        if($(this).val()!=0){
+            var h1_priceMonth=$(this).find('option:selected').text();
+            $('.h1_priceMonth').html('цена: '+h1_priceMonth+',');
+        }else{
+            $('.h1_priceMonth').html('');
+        }
     });
 
     formFilterSort.on("change",function(){
         editUrl('sort',formFilterSort.val());
         searchProduct();
+        if($(this).val()!=0){
+            var h1_sort=$(this).find('option:selected').text();
+            $('.h1_sort').html('сортировать: '+h1_sort+',');
+        }else{
+            $('.h1_sort').html('');
+        }
     });
 
     $(".filter-check").on("change",function (){
@@ -274,6 +346,16 @@ $(function() {
         newUrl=url.replace(/morskie(.*)/g,'morskie/residences/');
         history.pushState('', '', newUrl);
         searchProduct();
+        $('.h1_city').html('');
+        $('.h1_suburb').html('');
+        $('.h1_guest').html('');
+        $('.h1_typeHousing').html('');
+        $('.h1_distance').html('');
+        $('.h1_priceFrom').html('');
+        $('.h1_priceTo').html('');
+        $('.h1_priceMonth').html('');
+        $('.h1_adOwner').html('');
+        $('.h1_sort').html('');
     });
 
 
