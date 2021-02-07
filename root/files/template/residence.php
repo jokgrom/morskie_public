@@ -31,7 +31,12 @@
                 <li>Владелец объявления</li>
                 <li><?php echo $cell["ad_ownerTitle"];?></li>
             </ul>
-            <p><a href="/residence/<?php echo $cell["residenceId"];?>" target="_blank">Посмотреть описание</a></p>
+            <?php
+            $mapImgUrl="https://static-maps.yandex.ru/1.x/?ll=$cell[residenceAddressLongitude],$cell[residenceAddressLatitude]&size=200,200&z=13&l=map&pt=$cell[residenceAddressLongitude],$cell[residenceAddressLatitude],pm2rdm";
+            ?>
+            <div class="mapImg" style="background-image: url(<?php echo $mapImgUrl;?>)"></div>
+            <br>
+            <p><a href="/residence/<?php echo $cell["residenceId"];?>" target="_blank">посмотреть описание</a></p>
         </div>
     </div>
 </section>

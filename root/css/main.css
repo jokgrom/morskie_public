@@ -280,6 +280,14 @@ input[type=button] {
     .product .right-box li:first-child {
       color: #505556;
       font-weight: 600; }
+    .product .right-box p {
+      text-align: center;
+      font-weight: 600; }
+    .product .right-box .mapImg {
+      background-position: center;
+      background-size: cover;
+      width: 100%;
+      min-height: 100px; }
   .product .product-address {
     display: block;
     margin: 0.25rem 0 0.375rem 0;

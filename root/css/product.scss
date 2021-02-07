@@ -41,8 +41,18 @@
 		}
 		li:nth-child(2) {margin-top: -0.3125rem;}
 		li:first-child {
-			color:$color3; //945c5cc7 rgb(80, 85, 86)  b78953 945c5cd1
+			color:$color3;
 			font-weight: 600;
+		}
+		p {
+			text-align:center;
+			font-weight: 600;
+		}
+		.mapImg {
+			background-position: center;
+			background-size: cover;
+			width: 100%;
+			min-height: 100px;
 		}
 	}
 	.product-address{
