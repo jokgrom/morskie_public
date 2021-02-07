@@ -86,7 +86,7 @@
                      $queryOrderBy=" ORDER BY JSON_EXTRACT(prices, '$.".$month."') DESC";
                      break;
                  default:
-                     $queryOrderBy=' ORDER BY residence.date_added DESC';
+                     $queryOrderBy=' ORDER BY residence.date_actual DESC';
              }
              $queryGroupBy=' GROUP BY residence.id';
 

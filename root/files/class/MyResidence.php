@@ -211,7 +211,7 @@ class MyResidence{
                 INNER JOIN distance ON residence.distance_id=distance.id
                 INNER JOIN ad_owner ON residence.adOwner_id=ad_owner.id
                 INNER JOIN publication_status ON residence.publicationStatus_id=publication_status.id
-                WHERE residence.person_id=:personId AND residence._adminStatusPublication=2 $queryWhere ORDER BY residence.date_added DESC";
+                WHERE residence.person_id=:personId AND residence._adminStatusPublication=2 $queryWhere ORDER BY residence.date_actual DESC";
         $params =	[':personId' => $personId];
         $stmt = $this->db->prepare($query);
         $stmt->execute($params);
@@ -256,7 +256,7 @@ class MyResidence{
                 INNER JOIN distance ON residence_edit.distance_id=distance.id
                 INNER JOIN ad_owner ON residence_edit.adOwner_id=ad_owner.id
                 INNER JOIN publication_status ON residence_edit.publicationStatus_id=publication_status.id
-                WHERE residence_edit.person_id=:personId $queryWhere ORDER BY residence_edit.date_edit DESC";
+                WHERE residence_edit.person_id=:personId $queryWhere ORDER BY residence_edit.date_actual DESC";
         $params =	[':personId' => $personId];
         $stmt = $this->db->prepare($query);
         $stmt->execute($params);
@@ -289,7 +289,7 @@ class MyResidence{
 
         //выведем те у которых только фото на редактировании
         echo '<h2 class="title">Фотографии на модерации</h2>';
-        $query = "SELECT id , title FROM residence WHERE person_id=:personId AND id IN ($list_productId) ORDER BY date_added DESC";
+        $query = "SELECT id , title FROM residence WHERE person_id=:personId AND id IN ($list_productId) ORDER BY date_actual DESC";
         $stmt = $this->db->prepare($query);
         $stmt->execute($params);
         while($cell =  $stmt->fetch()){
@@ -330,7 +330,7 @@ class MyResidence{
                 INNER JOIN distance ON residence_edit.distance_id=distance.id
                 INNER JOIN ad_owner ON residence_edit.adOwner_id=ad_owner.id
                 INNER JOIN publication_status ON residence_edit.publicationStatus_id=publication_status.id
-                WHERE residence_edit.person_id=:personId $queryWhere ORDER BY residence_edit.date_edit DESC";
+                WHERE residence_edit.person_id=:personId $queryWhere ORDER BY residence_edit.date_actual DESC";
         $params =	[':personId' => $personId];
         $stmt = $this->db->prepare($query);
         $stmt->execute($params);
@@ -365,7 +365,7 @@ class MyResidence{
 
         echo '<h2 class="title">Отклонённые фотографии</h2>';
         echo $list_productId;
-        $query = "SELECT id , title FROM residence WHERE person_id=:personId AND id IN ($list_productId) ORDER BY date_added DESC";
+        $query = "SELECT id , title FROM residence WHERE person_id=:personId AND id IN ($list_productId) ORDER BY date_actual DESC";
         $stmt = $this->db->prepare($query);
         $stmt->execute($params);
         while($cell =  $stmt->fetch()){

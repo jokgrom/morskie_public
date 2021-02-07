@@ -86,7 +86,7 @@ class LordResidence
                 INNER JOIN type_housing ON residence_edit.typeHousing_id=type_housing.id
                 INNER JOIN distance ON residence_edit.distance_id=distance.id
                 INNER JOIN ad_owner ON residence_edit.adOwner_id=ad_owner.id
-                WHERE residence_edit._adminStatusPublication=3 ORDER BY residence_edit.date_edit DESC LIMIT 10";
+                WHERE residence_edit._adminStatusPublication=3 ORDER BY residence_edit.date_actual DESC LIMIT 10";
         $data_edit=$this->db->query($query_edit);
         if(is_object($data_edit)){
             foreach($data_edit  as $cell) {
@@ -303,7 +303,7 @@ class LordResidence
     //страница отклоненные
     public function getProduct_refusing(){
         //выведем те у которых текст на редактировании
-        $query = "SELECT residence_id, person_id, title FROM residence_edit WHERE _adminStatusPublication=1 ORDER BY date_edit DESC";
+        $query = "SELECT residence_id, person_id, title FROM residence_edit WHERE _adminStatusPublication=1 ORDER BY date_actual DESC";
         $data=$this->db->query($query);
         if(is_object($data)){
             foreach($data  as $cell) {
@@ -327,7 +327,7 @@ class LordResidence
     //Страница удалённые
     public function getProduct_deleted(){
         //выведем те у которых текст на редактировании
-        $query = "SELECT id, title FROM residence_delete ORDER BY date_added DESC";
+        $query = "SELECT id, title FROM residence_delete ORDER BY date_actual DESC";
         $data=$this->db->query($query);
         if(is_object($data)){
             foreach($data  as $cell) {
@@ -338,7 +338,7 @@ class LordResidence
 
     public function getPhoto_deleted(){
         //вывести фотки у которых статус на администрировании
-        $query="SELECT residence_id, id, path, name FROM photo_residence_delete ORDER BY date_added DESC";
+        $query="SELECT residence_id, id, path, name FROM photo_residence_delete ORDER BY date_actual DESC";
         $data=$this->db->query($query);
         if(is_object($data)){
             foreach ($data as $cell){
