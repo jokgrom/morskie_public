@@ -18,10 +18,14 @@ main {
 	padding-left: 2em;
 }
 .footer {
-	padding: 1.25rem 6%;
+	min-width: 600px;
+	padding: 1.25rem 0;
 	margin-bottom:50px;
 	font-family: $family3;
 	text-align: center;
+	p {
+		padding: 0 6%;
+	}
 }
 
 

@@ -55,10 +55,13 @@ main {
   padding-left: 2em; }
 
 .footer {
-  padding: 1.25rem 6%;
+  min-width: 600px;
+  padding: 1.25rem 0;
   margin-bottom: 50px;
   font-family: PhilosopherRegular;
   text-align: center; }
+  .footer p {
+    padding: 0 6%; }
 
 .left-bar {
   position: relative;

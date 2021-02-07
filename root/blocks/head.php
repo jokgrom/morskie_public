@@ -71,8 +71,8 @@
         default:
             $pageInfo['title']='Сервис подбора жилья у моря без посредников. Снять или сдать жильё у моря может каждый.';
     }
-    $updateUrlHash='?h=161223';
-    $BettaV='161.223';
+    $updateUrlHash='?h=161225';
+    $BettaV='161.225';
     if($_COOKIE['BettaV']!=$BettaV){
 //        header('Cache-Control: private, no-cache="set-cookie"');
 //        header('Expires: 0');
@@ -85,7 +85,7 @@
 <link rel="icon" href="https://morskie-puti.ru/favicon.ico" type="image/x-icon">
 <meta content="text/javascript" />
 <meta content="text/css" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, maximum-scale=1">
 
 <link rel="stylesheet" href="/root/css/main.css<?php echo $updateUrlHash; ?>" type="text/css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
