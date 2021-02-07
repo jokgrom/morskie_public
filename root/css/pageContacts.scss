@@ -13,8 +13,8 @@
 	    &:nth-of-type(1) {background-image: url(/root/img/whatsapp.png);}
 	    &:nth-of-type(2) {background-image: url(/root/img/instagram.png);}
 	    &:nth-of-type(3) {background-image: url(/root/img/telegram.png);}
-	    &:nth-of-type(4) {background-image: url(/root/img/vk.png);}
-	    &:nth-of-type(5) {background-image: url(/root/img/mail.png); white-space: pre;}
+	    //&:nth-of-type(4) {background-image: url(/root/img/vk.png);}
+	    &:nth-of-type(4) {background-image: url(/root/img/mail.png); white-space: pre;}
 	}
 	.left-bar p{
 		color:$color3;

@@ -7,7 +7,6 @@
 		<li><a href="https://api.whatsapp.com/send?phone=79186646763&text=<?php echo $text; ?>" target="_blank">8-918-664-67-63</li>
 		<li><a href="https://www.instagram.com/morskie_puti/" target="_blank">@morskie_puti</a></li>
 		<li><a href="https://t.me/morskie_puti" target="_blank">@morskie_puti</a></li>
-        <li><a href="https://vk.com/club97710199" target="_blank">vk.com/morskie_puti</a></li>
         <li>morskie-puti@ya.ru</li>
 	</ul>
 </aside>

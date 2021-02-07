@@ -484,8 +484,6 @@ input[type=button] {
   .page-contacts .left-bar li:nth-of-type(3) {
     background-image: url(/root/img/telegram.png); }
   .page-contacts .left-bar li:nth-of-type(4) {
-    background-image: url(/root/img/vk.png); }
-  .page-contacts .left-bar li:nth-of-type(5) {
     background-image: url(/root/img/mail.png);
     white-space: pre; }
 .page-contacts .left-bar p {
