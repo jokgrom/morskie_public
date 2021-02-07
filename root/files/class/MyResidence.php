@@ -186,6 +186,7 @@ class MyResidence{
         $queryWhere='';
         if($publish!=''){$queryWhere=' AND residence.publicationStatus_id='.$publish;}
         $query = "SELECT residence.id AS `residenceId`,
+                        DATE_FORMAT(residence.date_actual, '%d.%m.%y %k:%i') AS `residenceDate_actual`,
                         publication_status.title AS `publication_statusTitle`,
                         residence.person_id AS `residencePerson_id`,
                         residence.title AS `residenceTitle`,
@@ -403,6 +404,23 @@ class MyResidence{
         $stmt->execute($params);
         $cell =  $stmt->fetch();
         return $cell['publication_statusTitle'];
+    }
+
+
+    public function upPublish($personId, $productId){ //опубликовать или снять с публикации
+        $query_update = "UPDATE residence SET date_actual = NOW() WHERE id=:productId AND person_id=:personId LIMIT 1";
+        $params =	[':personId' => $personId,
+            ':productId' => $productId];
+        $stmt_update = $this->db->prepare($query_update);
+        $stmt_update->execute($params);
+        unset($query_update, $stmt_update);
+
+        $query="SELECT DATE_FORMAT(date_actual, '%d.%m.%y %k:%i') AS `residenceDate_actual`
+                    FROM residence WHERE id=:productId AND person_id=:personId LIMIT 1";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute($params);
+        $cell =  $stmt->fetch();
+        return $cell['residenceDate_actual'];
     }
 
 

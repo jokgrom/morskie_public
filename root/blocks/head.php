@@ -71,8 +71,8 @@
         default:
             $pageInfo['title']='Сервис подбора жилья у моря без посредников. Снять или сдать жильё у моря может каждый.';
     }
-    $updateUrlHash='?h=161214';
-    $BettaV='161.214';
+    $updateUrlHash='?h=161215';
+    $BettaV='161.215';
     if($_COOKIE['BettaV']!=$BettaV){
 //        header('Cache-Control: private, no-cache="set-cookie"');
 //        header('Expires: 0');
@@ -89,8 +89,8 @@
 
 <link rel="stylesheet" href="/root/css/main.css<?php echo $updateUrlHash; ?>" type="text/css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link  href="/root/css/slider_fotorama.css" rel="stylesheet">
-<script src="/root/js/slider_fotorama.js"></script>
+<link  href="/root/css/slider_fotorama.css<?php echo $updateUrlHash; ?>" rel="stylesheet">
+<script src="/root/js/slider_fotorama.js<?php echo $updateUrlHash; ?>"></script>
 <style>
 	.fotorama__nav {text-align: left;}
 	/*.fotorama__nav__frame  {margin-left:5px;margin-right: 5px;}*/
@@ -99,7 +99,6 @@
 <meta name="description" content="<?php echo $pageInfo['description']; ?>">
 <meta name="keywords" content="<?php echo $pageInfo['keywords']; ?>">
 <script src="/root/js/functions.js<?php echo $updateUrlHash; ?>"></script>
-<?php unset($pageInfo, $updateUrlHash);?>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >

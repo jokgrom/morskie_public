@@ -19,28 +19,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head><?php require_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/head.php');?></head>
-<script>
-		$(function(){
-		    const formMain=$('.main');
-
-            formMain.on( "click", ".publish", function() {
-				var productId= $(this).attr('productId');
-				$.get('app/publish.php',  {productId: productId}, function(data) {
-                    $('#publish'+productId).html(data);
-				});
-			});
-
-            formMain.on( "click", ".deleteProduct", function() {
-				var productId= $(this).attr('productId');
-				$.get('app/deleteProduct.php',  {productId: productId}, function(data) {
-					$('#getApp').html(data);
-				});
-				$('#product'+productId).remove();
-			});
-
-		})
-
-</script>
+<script src="/root/js/controlProduct.js<?php echo $updateUrlHash; ?>"></script>
 <body>
 	<div class="page page-publish myResidence">
 		<div class="wrap">

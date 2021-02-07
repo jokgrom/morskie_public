@@ -10,7 +10,7 @@
     <div class="product">
         <div class="cell main-box">
             <p><a href="/residence/<?php echo $cell["residenceId"].$UrlAdminStatus;?>" class="product-name" target="_blank"><?php echo $cell["residenceTitle"];?></a></p>
-            <p><a class="product-address"><?php echo $cell["cityTitle"].', '.$cell['suburbTitle']; ?> | <span class="product-distance">до моря <?php echo $cell["distanceTitle"];?></span></a></p>
+            <p><a class="product-address"><?php echo $cell["cityTitle"].', '.$cell['suburbTitle']; ?></a></p>
             <ul class="product-description">
                 <?php echo $convenienceContent;?>
             </ul>
@@ -28,6 +28,10 @@
                 <li><?php echo $cell["guestTitle"];?></li>
             </ul>
             <ul class="cell">
+                <li>До моря </li>
+                <li><?php echo $cell["distanceTitle"]?></li>
+            </ul>
+            <ul class="cell">
                 <li>Цены за номер</li>
                 <li><?php print_r($priceContent);?></li>
             </ul>
@@ -35,6 +39,16 @@
                 <li>Владелец объявления</li>
                 <li><?php echo $cell["ad_ownerTitle"];?></li>
             </ul>
+            <?php
+                if($UrlAdminStatus==''){
+                    echo "
+                    <ul class='cell'>
+                        <li>Позиция</li>
+                        <li><span id='upPublish$cell[residenceId]'>$cell[residenceDate_actual]</span></li>
+                        <li><a class='upPublish' style='font-weight: 600;' productId='$cell[residenceId]'>Поднять в позиции</a></li>
+                    </ul>
+                ";}
+            ?>
             <p><a href="/residence/<?php echo $cell["residenceId"].$UrlAdminStatus;?>" target="_blank">Посмотреть описание</a></p>
         </div>
     </div>

@@ -265,9 +265,6 @@ input[type=button] {
     .product .product-name:hover {
       color: #0092E0;
       text-decoration: underline; }
-  .product .product-distance {
-    font-size: 80%;
-    color: #000; }
   .product .right-box {
     width: 20%;
     margin: 0 auto;
