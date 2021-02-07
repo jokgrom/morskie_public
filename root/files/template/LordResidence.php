@@ -3,7 +3,7 @@
     <div class="product">
         <div class="cell main-box">
             <?php echo "<p><a href='/residence/$cell[residenceId]' class='product-name $colorError[residenceTitle]' target='_blank'>$cell[residenceTitle]</a></p>"; ?>
-            <p><a class="product-address <?php echo $colorError['cityTitle'].' '.$colorError['suburbTitle'];?>"><?php echo $cell["cityTitle"].', '.$cell['suburbTitle']; ?> | <span class="product-distance <?php echo $colorError["distanceTitle"];?>">до моря <?php echo $cell["distanceTitle"];?></span></a></p>
+            <p><a class="product-address <?php echo $colorError['cityTitle'].' '.$colorError['suburbTitle'];?>"><?php echo $cell["cityTitle"].', '.$cell['suburbTitle']; ?></a></p>
             <ul class="product-description <?php echo $colorError['residenceConveniences'];?>">
                 <?php echo $convenienceContent;?>
             </ul>
@@ -19,6 +19,10 @@
             <ul class="cell">
                 <li>Вместительность</li>
                 <?php echo "<li class='$colorError[guestTitle]'>$cell[guestTitle]</li>";?>
+            </ul>
+            <ul class="cell  <?php echo $colorError[distanceTitle]; ?>">
+                <li>До моря </li>
+                <?php echo "<li class='$colorError[distanceTitle]'>$cell[distanceTitle]</li>";?>
             </ul>
             <ul class="cell <?php echo $colorError[residencePrices]; ?>">
                 <li>Цены за номер</li>

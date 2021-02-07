@@ -2,7 +2,7 @@
     <div class="product">
         <div class="cell main-box">
             <p><a href="/residence/<?php echo $cell["residenceId"];?>" class="product-name" target="_blank"><?php echo $cell["residenceTitle"];?></a></p>
-            <p><a class="product-address"><?php echo $cell["cityTitle"].', '.$cell['suburbTitle']; ?> | <span class="product-distance">до моря <?php echo $cell["distanceTitle"];?></span></a></p>
+            <p><a class="product-address"><?php echo $cell["cityTitle"].', '.$cell['suburbTitle']; ?></a></p>
             <ul class="product-description">
                 <?php echo $convenienceContent;?>
             </ul>
@@ -18,6 +18,10 @@
             <ul class="cell">
                 <li>Вместительность</li>
                 <li><?php echo $cell["guestTitle"];?></li>
+            </ul>
+            <ul class="cell">
+                <li>До моря </li>
+                <li><?php echo $cell["distanceTitle"]?></li>
             </ul>
             <ul class="cell">
                 <li>Цены за номер</li>
