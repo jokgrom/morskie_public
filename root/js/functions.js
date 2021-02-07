@@ -43,14 +43,15 @@ $(function(){
 
 	$(document).ajaxStart(function() {
 		$(".loading").css("display", "block");
+		$("input[type='button']").prop("disabled", true);
 	});
 	$(document).ajaxComplete(function() {
 		$(".loading").css("display", "none");
+		$("input[type='button']").prop("disabled", false);
     	setTimeout(function(){
             $(".modal").css("display", "none");
         }, 2000);
 	});
-
 });
 
 

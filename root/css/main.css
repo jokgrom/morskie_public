@@ -196,10 +196,10 @@ input[type=button] {
   flex-wrap: wrap;
   padding-bottom: 1.25rem; }
   .top-bar .cell {
-    margin: 0.1rem 0.3rem; }
+    margin: 0.1rem 0.2rem; }
   .top-bar .filter {
     margin: 0.31rem 0;
-    padding: 0.31rem 1rem 0.31rem 0.31rem;
+    padding: 0.31rem 0.28rem;
     border: 0.0625rem solid;
     border-radius: 0.2rem;
     border-color: #708c91;

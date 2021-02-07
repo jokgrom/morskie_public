@@ -485,7 +485,7 @@
             }
             return "Поиск жилья у моря <span class='h1_city'>$h1_city</span> <span class='h1_suburb'>$h1_suburb</span> ".
                 "<span class='h1_guest'>$h1_guest</span> <span class='h1_typeHousing'>$h1_typeHousing</span> <span class='h1_distance'>$h1_distance</span> ".
-                "<span class='h1_priceFrom'>$h1_priceFrom</span> <span class='h1_priceTo'>$h1_priceTo</span> <span class='h1_priceMonth'>$h1_priceMonth</span> ".
+                "<noindex><span class='h1_priceFrom'>$h1_priceFrom</span> <span class='h1_priceTo'>$h1_priceTo</span></noindex> <span class='h1_priceMonth'>$h1_priceMonth</span> ".
                 "<span class='h1_adOwner'>$h1_adOwner</span> <span class='h1_sort'>$h1_sort</span>";
         }
 
