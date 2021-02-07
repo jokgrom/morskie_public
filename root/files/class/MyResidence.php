@@ -104,15 +104,14 @@ class MyResidence{
         $product['contacts']=nl2br($product['contacts']);
         $product['conveniences']=json_encode($product['conveniences']);
         $product['price']=json_encode($product['price']);
-        $date_added=time();
 
         $query = "INSERT INTO residence 
-                    (date_added, person_id, title, 
+                    (date_edit, date_actual, person_id, title, 
                      city_id, suburb_id, guest_id, typeHousing_id, 
                      distance_id, adOwner_id, rules, 
                      description, addressLatitude, addressLongitude, 
                      address, contacts, conveniences, prices) 
-                    VALUES ($date_added, :person_id, :title, 
+                    VALUES (NOW(), NOW(), :person_id, :title, 
                             :city_id, :suburb_id, :guest_id, :typeHousing_id, 
                             :distance_id, :adOwner_id, :rules, 
                             :description, :addressLatitude, :addressLongitude, 
@@ -141,12 +140,12 @@ class MyResidence{
 
         //добавим в таблицу на модерацию
         $query_is_edit = "INSERT INTO residence_edit 
-                            (residence_id, date_edit, person_id, title, 
+                            (residence_id, date_edit, date_actual, person_id, title, 
                              city_id, suburb_id, guest_id, typeHousing_id, 
                              distance_id, adOwner_id, rules, 
                              description, addressLatitude, addressLongitude, 
                              address, contacts, conveniences, prices) 
-                            VALUES ($lastInsertId, $date_added, :person_id, :title, 
+                            VALUES ($lastInsertId, NOW(), NOW(), :person_id, :title, 
                                     :city_id, :suburb_id, :guest_id, :typeHousing_id, 
                                     :distance_id, :adOwner_id, :rules, 
                                     :description, :addressLatitude, :addressLongitude, 
@@ -420,15 +419,14 @@ class MyResidence{
         $product['contacts']=nl2br($product['contacts']);
         $product['conveniences']=json_encode($product['conveniences']);
         $product['price']=json_encode($product['price']);
-        $date_edit=time();
 
         $query = "INSERT INTO residence_edit 
-                    (residence_id, date_edit, person_id, title, 
+                    (residence_id, date_edit, date_actual, person_id, title, 
                      city_id, suburb_id, guest_id, typeHousing_id, 
                      distance_id, adOwner_id, rules, 
                      description, addressLatitude, addressLongitude, 
                      address, contacts, conveniences, prices) 
-                    VALUES (:residence_id, $date_edit, :person_id, :title, 
+                    VALUES (:residence_id, NOW(), NOW(), :person_id, :title, 
                             :city_id, :suburb_id, :guest_id, :typeHousing_id, 
                             :distance_id, :adOwner_id, :rules, 
                             :description, :addressLatitude, :addressLongitude, 

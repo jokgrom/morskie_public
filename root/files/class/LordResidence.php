@@ -158,7 +158,8 @@ class LordResidence
         $query_update = "UPDATE residence 
             SET publicationStatus_id = $cell[publicationStatus_id],
                 _adminStatusPublication = 2,
-                date_added = $cell[date_edit],
+                date_edit = NOW(),
+                date_actual = NOW(),
                 person_id = $cell[person_id],
                 title = '$cell[title]',
                 city_id = $cell[city_id],
@@ -204,7 +205,8 @@ class LordResidence
         $query_update = "UPDATE residence 
             SET publicationStatus_id = $cell[publicationStatus_id],
                 _adminStatusPublication = 2,
-                date_added = $cell[date_edit],
+                date_edit = NOW(),
+                date_actual = NOW(),
                 person_id = $cell[person_id],
                 title = '$cell[title]',
                 city_id = $cell[city_id],
