@@ -215,8 +215,10 @@ $(function() {
         var city_id='';
         editUrl('suburb',product.suburb);
         city_id=(product.suburb>0) ? product.suburb : check_productCity(formFilterCity.val());
-        $.get('app/mapImgSearch.php',  {city_id: city_id}, function(data) {
+        console.log(city_id);
+        $.get('app/mapSearch.php',  {city_id: city_id}, function(data) {
             mapImgSearch.html(data);
+            console.log('dsa');
         });
 
         searchProduct();
