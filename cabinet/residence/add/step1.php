@@ -33,7 +33,7 @@
 <script src="/root/js/cleanFormProduct.js<?php echo $updateUrlHash; ?>"></script>
 <script src="/root/js/product_add.js<?php echo $updateUrlHash; ?>"></script>
 <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
-
+<script src="//code-ya.jivosite.com/widget/xrXHAvphaN" async></script>
 <body>
 	<div class="page page-addResidence">
 		<div class="wrap">

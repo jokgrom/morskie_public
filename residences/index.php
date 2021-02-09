@@ -32,6 +32,7 @@
     $product["conveniences"] = array_diff($product["conveniences"], array(''));
     $product["page"]=$CleanForm->number($_GET["page"]);
 
+    $city_id=($product["suburb"]==0 ? $product["city"] : $product["suburb"]);
 
 
 ?>
@@ -40,6 +41,7 @@
     <head><?php require_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/head.php');?></head>
     <script src="/root/js/cleanFormProduct.js<?php echo $updateUrlHash; ?>"></script>
     <script src="/root/js/residences_find.js<?php echo $updateUrlHash; ?>"></script>
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
     <body class="main page-residences">
     <div class="page">
         <div class="wrap">
@@ -70,6 +72,7 @@
                             </div>
                         </aside>
                         <p><?php echo $TemplateProduct->html_h1($product); ?></p>
+                        <div class="mapImgSearch"><?php if($product["city"]!=0){echo $TemplateProduct->mapSearch($city_id);} ?></div>
                         <div id="product-box"><?php  $Residence->getAll($product);?></div>
                     </main>
                 </div>

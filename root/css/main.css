@@ -539,6 +539,11 @@ input[type=button] {
 .page-residences .filter-menu-button {
   display: block; }
 
+.mapImgSearch .mapbox {
+  min-height: 12rem; }
+.mapImgSearch .map {
+  height: 12rem; }
+
 @media screen and (max-width: 1100px) {
   html {
     font-size: 1.01rem; } }

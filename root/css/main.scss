@@ -213,5 +213,16 @@ html {
 
 }
 
+.mapImgSearch {
+	.mapbox {
+		min-height: 12rem;
+	}
+	.map {
+		height:12rem;
+	}
+}
+
+
+
 //мобильная версия
 @import "mobile_style.scss";

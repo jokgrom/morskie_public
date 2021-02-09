@@ -489,4 +489,16 @@
                 "<span class='h1_adOwner'>$h1_adOwner</span> <span class='h1_sort'>$h1_sort</span>";
         }
 
+        function mapSearch($city_id){
+            $query = "SELECT title ,addressLatitude, addressLongitude FROM city WHERE id = :city_id LIMIT 1";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute([':city_id' => $city_id]);
+            $cell = $stmt->fetch();
+            if($cell){
+                return self::map($cell['title'], $cell['addressLatitude'],$cell['addressLongitude']);
+            }else{
+                return false;
+            }
+        }
+
     }

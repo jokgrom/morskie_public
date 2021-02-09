@@ -10,6 +10,9 @@ $(function() {
     const formPriceMonth = $('.filter-price');
     const formFilterAdOwner = $('.filter-adOwner');
     const formFilterSort = $('.filter-sort');
+    const mapImgSearch = $('.mapImgSearch');
+    const mapImgSearch_box = $('.mapImgSearch-box');
+
 
     function editUrlPage(){
         var key='page';
@@ -190,7 +193,14 @@ $(function() {
         $.get('/root/files/update-location.php',  {city: product.city}, function(data) {
             $('.filter-suburb').html(data);
         });
-        searchProduct();
+
+        $.get('app/mapSearch.php',  {city_id: product.city}, function(data) {
+            mapImgSearch.html(data);
+        });
+        setTimeout(function(){ //идёт задержка пересмены пригорода
+            searchProduct();
+        }, 600);
+
         if($(this).val()!=0){
             var h1_city=$(this).find('option:selected').text();
             $('.h1_city').html('г. '+h1_city+',');
@@ -201,7 +211,14 @@ $(function() {
     });
 
     formFilterSuburb.on("change",function(){
-        editUrl('suburb',formFilterSuburb.val());
+        var product=check_productSuburb(formFilterSuburb.val());
+        var city_id='';
+        editUrl('suburb',product.suburb);
+        city_id=(product.suburb>0) ? product.suburb : check_productCity(formFilterCity.val());
+        $.get('app/mapImgSearch.php',  {city_id: city_id}, function(data) {
+            mapImgSearch.html(data);
+        });
+
         searchProduct();
         if($(this).val()!=0){
             var h1_suburb=$(this).find('option:selected').text();

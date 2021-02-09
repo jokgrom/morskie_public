@@ -3,6 +3,7 @@
 <head><?php require_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/head.php');?></head>
 <script src="/root/js/cleanFormPerson.js<?php echo $updateUrlHash; ?>"></script>
 <script src="/root/js/contacts.js<?php echo $updateUrlHash; ?>"></script>
+<script src="//code-ya.jivosite.com/widget/xrXHAvphaN" async></script>
 <body class="page-contacts">
 	<div class="page page-contacts">
 		<div class="wrap">
