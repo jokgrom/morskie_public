@@ -4,7 +4,7 @@
         $url_navigation2='/cabinet/residence/';
     }else{
         $url_navigation='/cabinet/registration.php';
-        $url_navigation2=$url_navigation;
+        $url_navigation2='/cabinet/authorization.php';
     }
 ?>
 <header class="header">
