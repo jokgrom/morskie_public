@@ -585,6 +585,7 @@ input[type=button] {
       position: fixed;
       bottom: 0;
       left: 0;
+      font-size: 140%;
       z-index: 5;
       overflow: auto;
       background-color: rgba(255, 255, 255, 0.9); }
@@ -602,8 +603,10 @@ input[type=button] {
     display: block;
     position: fixed;
     bottom: 0;
-    padding: 6px 6px 12px 6px;
     width: 100%;
+    padding: 3%;
+    font-weight: 600;
+    font-size: 118%;
     z-index: 10;
     background-color: #169e0d; }
     .footer-menu-block .footer-menu {
