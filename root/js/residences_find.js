@@ -364,6 +364,7 @@ $(function() {
         $(".filter-check").prop("checked", 0);
         formPriceFrom.val(0);
         formPriceTo.val(0);
+        formProductTitle.val('');
 
         var url= window.location.href;
         var newUrl;
