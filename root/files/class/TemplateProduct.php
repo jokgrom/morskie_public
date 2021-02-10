@@ -89,7 +89,7 @@
         function adOwner($value=''){
             $query = "SELECT id, title FROM ad_owner";
             $data =$this->db->query($query);
-            $listAdOwner=($value!='' ? '<option value="0">Владелец объявления</option>' : '<option selected value="0">Владелец объявления</option>');
+            $listAdOwner=($value!='' ? '<option value="0">Разместил</option>' : '<option selected value="0">Разместил</option>');
             if(is_object($data)){
                 foreach($data  as $cell) {
                     $listAdOwner.=($value==$cell['id'] ? "<option selected value='$cell[id]'>$cell[title]</option>" :

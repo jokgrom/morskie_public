@@ -36,7 +36,7 @@
                 <li><?php print_r($priceContent);?></li>
             </ul>
             <ul class="cell">
-                <li>Владелец объявления</li>
+                <li>Разместил</li>
                 <li><?php echo $cell["ad_ownerTitle"];?></li>
             </ul>
             <?php

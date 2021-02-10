@@ -29,7 +29,7 @@
                 <li><?php print_r($priceContent);?></li>
             </ul>
             <ul class="cell">
-                <li>Владелец объявления</li>
+                <li>Разместил</li>
                 <?php echo "<li class='$colorError[ad_ownerTitle]'>$cell[ad_ownerTitle]</li>";?>
             </ul>
             <?php
