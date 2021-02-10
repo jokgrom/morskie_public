@@ -58,6 +58,7 @@
 
          public function getAll($product=[]){
              $queryWhere=[];
+             if($product['title']!=''){array_push($queryWhere, 'residence.title LIKE "%'.$product['title'].'%"');}
              if($product['city']!=0){array_push($queryWhere, 'residence.city_id='.$product['city']);}
              if($product['suburb']!=0){array_push($queryWhere, 'residence.suburb_id='.$product['suburb']);}
              if($product['guest']!=0){array_push($queryWhere, 'residence.guest_id='.$product['guest']);}

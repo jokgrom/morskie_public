@@ -1,5 +1,6 @@
 const colorError='#fcc', colorNoError='#fff';
 $(function() {
+    const formProductTitle = $('#product-title');
     const formFilterCity = $('.filter-city');
     const formFilterSuburb = $('.filter-suburb');
     const formFilterGuest = $('.filter-guest');
@@ -167,6 +168,7 @@ $(function() {
         });
 
         var product={
+            "title" :formProductTitle.val(),
             "city" : formFilterCity.val(),
             "suburb" : formFilterSuburb.val(),
             "guest" : formFilterGuest.val(),
@@ -186,6 +188,9 @@ $(function() {
         });
     }
 
+    formProductTitle.on("change",function(){
+        searchProduct();
+    });
 
     formFilterCity.on("change",function(){
         var product=check_productCity(formFilterCity.val());

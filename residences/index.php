@@ -66,6 +66,7 @@
                             <div class="cell"><?php echo $TemplateProduct->priceMonth($product["priceMonth"]); ?></div>
                             <div class="cell"><?php echo $TemplateProduct->adOwner($product["adOwner"]); ?></div>
                             <div class="cell"><?php echo $TemplateProduct->sort($product["sort"]); ?></div>
+                            <div class="cell"><?php echo $TemplateProduct->title(); ?></div>
                             <div class="cell">
                                 <input id="GO" class="filter" type="button" value="найти">
                                 <input class="filter reset" type="button" value="сбросить фильтр">
