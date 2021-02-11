@@ -2,7 +2,7 @@
     <div class="product">
         <div class="cell main-box">
             <p><a href="/residence/<?php echo $cell["residenceId"];?>" class="product-name" target="_blank"><?php echo $cell["residenceTitle"];?></a></p>
-            <p><a class="product-address"><?php echo $cell["cityTitle"].', '.$cell['suburbTitle']; ?></a></p>
+            <p class="product-address"><?php echo $cell["cityTitle"].', '.$cell['suburbTitle']; ?></p>
             <ul class="product-description">
                 <?php echo $convenienceContent;?>
             </ul>
@@ -35,8 +35,6 @@
             $mapImgUrl="https://static-maps.yandex.ru/1.x/?ll=$cell[residenceAddressLongitude],$cell[residenceAddressLatitude]&size=200,200&z=13&l=map&pt=$cell[residenceAddressLongitude],$cell[residenceAddressLatitude],pm2rdm";
             ?>
             <div class="mapImg" style="background-image: url(<?php echo $mapImgUrl;?>)"></div>
-            <br>
-            <p><a href="/residence/<?php echo $cell["residenceId"];?>" target="_blank">посмотреть описание</a></p>
         </div>
     </div>
 </section>
