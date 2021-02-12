@@ -82,5 +82,5 @@ a:hover {
     text-shadow: 0 0 black;
 }
 p {
-	word-break: break-all;
+	/*word-break: break-all;*/
 }

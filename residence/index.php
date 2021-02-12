@@ -140,6 +140,7 @@
                     </section>
                     <section class="section" id="contacts">
                         <p class="strong">Контакты</p>
+                        <p><small class="color4">Если возникли не совпадения с описанием, то сообщите об этом собственнику или <a href="https://morskie-puti.ru/contacts/" target="_blank">нам</a>! Мы постараемся навести порядок в этом хаосе :) С уважением, "Морские пути".</small></p>
                         <p><?php echo $Residence->contacts; ?></p>
                     </section>
                     <section class="section" id="address">
