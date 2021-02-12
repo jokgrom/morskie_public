@@ -12,6 +12,7 @@
 					<?php include_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/leftBar/registrationLeftBar.php');?>
 					<main class="main">
 						<h1 class="title">Регистрация</h1>
+                        <p>После регистрации вы сможете размещать объявления о сдачи жилья на побережье "Черного моря" бесплатно. Никаких комиссионных, продление объявления бесплатно, публикация минимум на 1 год! Поднятие в ТОП бесплатно!</p>
 						<section class="section">
 							<ul>
 								<li><label for="person-phone">телефон</label><input  id="person-phone" class="form-person" type="text" placeholder="телефон"></li>

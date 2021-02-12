@@ -1,5 +1,8 @@
 User-agent: *
-Disallow: /cabinet
+Disallow: /cabinet/app/
+Disallow: /cabinet/profile/
+Disallow: /cabinet/residence/
+Disallow: /cabinet/passwordReset.php
 Disallow: /lord
 Disallow: /root
 Disallow: /.htaccess

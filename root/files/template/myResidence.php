@@ -45,7 +45,7 @@
                     <ul class='cell'>
                         <li>Позиция</li>
                         <li><span id='upPublish$cell[residenceId]'>$cell[residenceDate_actual]</span></li>
-                        <li><a class='upPublish' style='font-weight: 600;' productId='$cell[residenceId]'>Поднять в позиции</a></li>
+                        <li><a class='upPublish' style='font-weight: 600;' productId='$cell[residenceId]'>Поднять в ТОП</a></li>
                     </ul>
                 ";}
                 $mapImgUrl="https://static-maps.yandex.ru/1.x/?ll=$cell[residenceAddressLongitude],$cell[residenceAddressLatitude]&size=200,200&z=13&l=map&pt=$cell[residenceAddressLongitude],$cell[residenceAddressLatitude],pm2rdm";
