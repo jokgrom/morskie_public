@@ -72,7 +72,6 @@ $(function(){
 			"city" : '',
 			"suburb" : '',
 			"description" : '',
-			"price" : '',
 			"addressLatitude" : '',
 			"addressLongitude" : '',
 			"address" : '',
@@ -101,7 +100,7 @@ $(function(){
 
 		productCheck=check_productEntertainmentPrice(formProductEntertainmentPrice.val());
 		statusCheck(formProductEntertainmentPrice,productCheck);
-		product['EntertainmentPrice']=productCheck.entertainmentPrice;
+		product['entertainmentPrice']=productCheck.entertainmentPrice;
 
 		productCheck=check_productAddress(formProductAddress.attr('address'));
 		statusCheck(formProductAddress,productCheck);
@@ -129,6 +128,7 @@ $(function(){
         });
 
 		// если ошибок нет то отправляем запрос
+		console.log(product);
 		if(statusError.length>0){
 			$(".info-text").html(statusError.join(""));
 		}else{

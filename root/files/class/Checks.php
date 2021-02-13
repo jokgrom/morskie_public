@@ -55,7 +55,17 @@ class Checks
         }else{
             return array (true, 'ошибка Аутентификации объявления');
         }
+    }
 
+    function lastEntertainmentId($personId, $productId){
+        $query = "SELECT 1 FROM entertainment WHERE id = :productId AND person_id=:personId LIMIT 1";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([':personId' => $personId, ':productId' => $productId]);
+        if($stmt->fetch()){
+            return array (false, '');
+        }else{
+            return array (true, 'ошибка Аутентификации объявления');
+        }
     }
 
     function countResidence($personId){
@@ -86,6 +96,17 @@ class Checks
         $stmt->execute([':personId' => $personId, ':productId' => $productId]);
         if($cell=$stmt->fetch()){
             return $cell['countPhotoResidence'];
+        }else{
+            return 100;
+        }
+    }
+
+    function countPhotoEntertainment($personId, $productId){
+        $query = "SELECT COUNT(id) AS `countPhotoEntertainment`  FROM photo_entertainment WHERE person_id=:personId AND product_id=:productId";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([':personId' => $personId, ':productId' => $productId]);
+        if($cell=$stmt->fetch()){
+            return $cell['countPhotoEntertainment'];
         }else{
             return 100;
         }

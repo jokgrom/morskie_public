@@ -5,7 +5,7 @@
     require_once($_SERVER['DOCUMENT_ROOT'].'/root/files/class/CleanFormProduct.php');
     require_once($_SERVER['DOCUMENT_ROOT'].'/root/files/class/Checks.php');
 
-    require_once($_SERVER['DOCUMENT_ROOT'].'/root/files/class/MyResidence.php');
+    require_once($_SERVER['DOCUMENT_ROOT'].'/root/files/class/MyEntertainment.php');
 
     $statusError=[];
     $CleanFormPerson=new CleanFormPerson;
@@ -58,12 +58,12 @@
     list  ($product["listEntertainment"], $boolError, $textError)=$CleanFormProduct->listEntertainment($product["listEntertainment"]);
     if($boolError){array_push($statusError, $textError);}
 
-    var_dump($product);
     //если ошибок нету то добавляем в бд
     if(!count($statusError)){
-//        $MyEntertainment = new MyEntertainment($db);
-//        $MyEntertainment->add($personId, $product);
+        $MyEntertainment = new MyEntertainment($db);
+        $MyEntertainment->add($personId, $product);
     }else{
         $statusError=implode(', ', $statusError);
+        echo '<p>Ошибка: $statusError!</p>';
         exit("<div class='modal'><p>Ошибка: $statusError!</p></div>");
     }
