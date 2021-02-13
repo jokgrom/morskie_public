@@ -220,6 +220,9 @@
                     <li><label><input type="text" class="product-price" value="'.$newArray[11].'"> декабрь</label></li>
                 </ul>';
         }
+        public function priceEntertainment($value='') {
+            return '<textarea id="product-price" class="form-textarea productEntertainment-price">'.$value.'</textarea>';
+        }
 
         public function contacts($value='') {
             return '<textarea id="product-contacts" class="form-textarea product-contacts">'.$value.'</textarea>';
@@ -499,6 +502,22 @@
             }else{
                 return false;
             }
+        }
+
+        function getListEntertainment($values=[]){
+            $listEntertainment='';
+            $query = "SELECT id,title FROM entertainment_list ORDER BY title";
+            $data =$this->db->query($query);
+            if(is_object($data)) {
+                foreach ($data as $cell) {
+                    if (in_array($cell['id'], $values)) {
+                        $listEntertainment.="<li><label><input type='radio' name='entertainment' class='filter-check' checked value='$cell[id]'> $cell[title]</label></li>";
+                    }else{
+                        $listEntertainment.="<li><label><input type='radio' name='entertainment' class='filter-check' value='$cell[id]'> $cell[title]</label></li>";
+                    }
+                }
+            }
+            return '<ul class="cell">'.$listEntertainment.'</ul>';
         }
 
     }

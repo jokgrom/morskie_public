@@ -144,6 +144,16 @@ function check_productPrice(productPrice){
     }
 }
 
+function check_productEntertainmentPrice(productEntertainmentPrice){
+    productEntertainmentPrice=productEntertainmentPrice.replace(regular_productText,'');
+    productEntertainmentPrice=productEntertainmentPrice.substr(0, 2000);
+    if(productEntertainmentPrice.toString().length<3){
+        return {entertainmentPrice: productEntertainmentPrice, color : colorError, boolError: true, textError : 'не заполнено поле "Цена"'};
+    }else{
+        return {entertainmentPrice: productEntertainmentPrice, color : colorNoError, boolError: false, textError : ''};
+    }
+}
+
 function check_productPriceMonth(productPriceMonth){
     productPriceMonth=productPriceMonth.replace(regular_productNumber,'');
     productPriceMonth=Number.parseInt(productPriceMonth.substr(0, 3));

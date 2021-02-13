@@ -69,6 +69,17 @@ class Checks
         }
     }
 
+    function countEntertainment($personId){
+        $query = "SELECT COUNT(id) AS `countProduct`  FROM entertainment WHERE person_id=:personId";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([':personId' => $personId]);
+        if($cell=$stmt->fetch()){
+            return $cell['countProduct'];
+        }else{
+            return 100;
+        }
+    }
+
     function countPhotoResidence($personId, $productId){
         $query = "SELECT COUNT(id) AS `countPhotoResidence`  FROM photo_residence WHERE person_id=:personId AND residence_id=:productId";
         $stmt = $this->db->prepare($query);

@@ -120,6 +120,17 @@ class CleanFormProduct extends CleanForm
         }
     }
 
+    function entertainmentPrice($entertainmentPrice){
+        $entertainmentPrice=parent::clean($entertainmentPrice);
+        $entertainmentPrice=preg_replace('/[^a-zA-Zа-яА-ЯёЁ0-9_ \n\-(){}\[\]\/.,;:@!?#№=+«»]/u','', $entertainmentPrice);
+        $entertainmentPrice=mb_substr($entertainmentPrice, 0, 2000);
+        if(mb_strlen($entertainmentPrice, 'utf8')<3){
+            return array ($entertainmentPrice, true, 'не заполнено поле "Цена"');
+        }else{
+            return array ($entertainmentPrice, false, '');
+        }
+    }
+
     function address($address){
         $address=parent::clean($address);
         $address=preg_replace('/[^a-zA-Zа-яА-ЯёЁ0-9_ \-(){}\[\]\/.,;:@!?#№=+«»]/u','', $address);
@@ -163,6 +174,18 @@ class CleanFormProduct extends CleanForm
             return array ($conveniences, true, 'не корректное значение поля "Удобства"');
         }else{
             return array ($conveniences, false, '');
+        }
+    }
+
+    function listEntertainment($entertainment){
+        $entertainment=parent::clean($entertainment);
+        $entertainment=preg_replace('/[^0-9]/','', $entertainment);
+        $entertainment=mb_substr($entertainment, 0, 3);
+        $entertainment=(int)($entertainment);
+        if($entertainment<=0){
+            return array ($entertainment, true, 'не корректное значение поля "Характеристика"');
+        }else{
+            return array ($entertainment, false, '');
         }
     }
 
