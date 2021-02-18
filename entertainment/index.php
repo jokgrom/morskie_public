@@ -49,6 +49,14 @@
         if($bool){
             $Entertainment->getInfo($productId);
         }
+        if($Entertainment->title==''){
+            exit("<div class='modal'><noindex><p>Объявление не найдено</p></noindex></div>
+                <script type='text/javascript'>
+                setTimeout(function(){
+                    window.location.href = '/entertainments/';
+                }, 1000);
+                </script>");
+        }
     }else{
         $statusError=implode(', ', $statusError);
         exit("<div class='modal'><p>Ошибка: $statusError!</p></div>

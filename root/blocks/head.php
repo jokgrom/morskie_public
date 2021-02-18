@@ -60,6 +60,36 @@
             $pageInfo['keywords'] =implode(", ", $keywords);
             break;
 
+        case '/entertainment/':
+            //вывод из бд объявления
+            include_once($_SERVER['DOCUMENT_ROOT'].'/root/files/class/db.php');
+            include_once($_SERVER['DOCUMENT_ROOT'].'/root/files/class/CleanForm.php');
+            include_once($_SERVER['DOCUMENT_ROOT'].'/root/files/class/CleanFormProduct.php');
+
+            include_once($_SERVER['DOCUMENT_ROOT'].'/root/files/class/Entertainment.php');
+
+
+            $Entertainment=new Entertainment($db);
+            $CleanFormProduct = new CleanFormProduct;
+
+            list  ($productId, $boolError, $textError)=$CleanFormProduct->id($_GET['id']);
+            $Entertainment->getInfo($productId);
+            $pageInfo['title']=$Entertainment->title.' | '.$Entertainment->cityTitle.', '.$Entertainment->suburbTitle;
+
+            $description=mb_substr($Entertainment->description, 0, 250);
+            $pageInfo['description']=$description;
+
+            $keywords = explode(" ", $Entertainment->title);
+            if(count($keywords)>1){
+                foreach($keywords as $key => $value){
+                    if(iconv_strlen($value)<3){
+                        unset($keywords[$key]);
+                    }
+                }
+            }
+            $pageInfo['keywords'] =implode(", ", $keywords);
+            break;
+
         case '/cabinet/residence/add/step1.php':
             $pageInfo['title']='Размещение бесплатного объявления. Шаг 1/2';
             break;

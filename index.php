@@ -12,11 +12,6 @@ $TemplateProduct=new TemplateProduct($db);
 <!DOCTYPE html>
 <html lang="ru">
 <head><?php include('root/blocks/head.php');?></head>
-<script>
-    setTimeout(function(){
-        window.location.href = "/residences/";
-    }, 60000);
-</script>
 <body>
 <div class="page page-main">
     <div class="wrap">

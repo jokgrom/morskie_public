@@ -50,6 +50,14 @@
         if($bool){
             $Residence->getInfo($productId);
         }
+        if($Residence->title==''){
+            exit("<div class='modal'><noindex><p>Объявление не найдено</p></noindex></div>
+                <script type='text/javascript'>
+                setTimeout(function(){
+                    window.location.href = '/residences/';
+                }, 1000);
+                </script>");
+        }
 
         //определим цены
         $prices_object=($Residence->prices!='' ? json_decode($Residence->prices) : [] );
