@@ -20,7 +20,7 @@
         exit('<div class="modal"><p>Превышен лимит. Не более 5ти объявлений!</p></div>
             <script  type="text/javascript">
          setTimeout(function(){
-            window.location.href = "/cabinet/residence/";
+            window.location.href = "/cabinet/entertainment/";
         }, 500);
         </script>');
     }
@@ -33,7 +33,7 @@
 <script src="/root/js/cleanFormProduct.js<?php echo $updateUrlHash; ?>"></script>
 <script src="/root/js/productEntertainment_add.js<?php echo $updateUrlHash; ?>"></script>
 <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
-<!--<script src="//code-ya.jivosite.com/widget/xrXHAvphaN" async></script>-->
+<script src="//code-ya.jivosite.com/widget/xrXHAvphaN" async></script>
 <body>
 	<div class="page page-addEntertainment">
 		<div class="wrap">
@@ -59,7 +59,7 @@
                             <?php echo $TemplateProduct->suburb(); ?>
 						</section>
 
-						<section class="section convenience" id="conveniences">
+						<section class="section" id="listEntertainment">
                             <?php echo $TemplateProduct->getListEntertainment(); ?>
 						</section>
 

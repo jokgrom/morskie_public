@@ -15,7 +15,7 @@ $TemplateProduct=new TemplateProduct($db);
 <script>
     setTimeout(function(){
         window.location.href = "/residences/";
-    }, 30000);
+    }, 60000);
 </script>
 <body>
 <div class="page page-main">

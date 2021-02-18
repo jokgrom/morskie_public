@@ -28,7 +28,7 @@
             <div class="content">
                 <?php include_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/leftBar/cabinetLeftBar.php');?>
                 <main class="main">
-                    <h1 class="title">Не опубликованные объявления</h1>
+                    <h1 class="title">Жильё | Не опубликованные объявления</h1>
                     <?php  $MyResidence->getProduct($personId,1); ?>
                 </main>
             </div>

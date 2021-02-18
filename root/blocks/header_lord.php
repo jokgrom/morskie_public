@@ -5,9 +5,9 @@
     </div>
     <nav>
         <ul class="navigation">
-            <li class="cell"><a href="/lord/onChecking/residenceProduct_checking.php">На проверке</a></li>
-            <li class="cell"><a href="/lord/refusing/residenceProduct_refusing.php">Отклонённые</a></li>
-            <li class="cell"><a href="/lord/deleted/residenceProduct_deleted.php">Удалённые</a></li>
+            <li class="cell"><a href="/lord/residence/onChecking/residenceProduct_checking.php">На проверке</a></li>
+            <li class="cell"><a href="/lord/residence/refusing/residenceProduct_refusing.php">Отклонённые</a></li>
+            <li class="cell"><a href="/lord/residence/deleted/residenceProduct_deleted.php">Удалённые</a></li>
             <li class="cell"><a href="/">Выйти</a></li>
         </ul>
     </nav>

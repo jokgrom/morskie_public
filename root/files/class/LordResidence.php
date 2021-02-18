@@ -263,7 +263,6 @@ class LordResidence
 //        перезапишем статус фотографиям
         $query_update = "UPDATE photo_residence SET _adminStatusPublication = 1 WHERE id=$photoId";
         if(!$this->db->query($query_update)){
-
             $textError.= '<div class="modal"><p>ошибка при перезаписи статуса фотографий на 1!</p></div>';
         }
         echo $textError;
@@ -338,7 +337,7 @@ class LordResidence
 
     public function getPhoto_deleted(){
         //вывести фотки у которых статус на администрировании
-        $query="SELECT residence_id, id, path, name FROM photo_residence_delete ORDER BY date_actual DESC";
+        $query="SELECT residence_id, id, path, name FROM photo_residence_delete ORDER BY date_added DESC";
         $data=$this->db->query($query);
         if(is_object($data)){
             foreach ($data as $cell){

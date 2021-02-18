@@ -4,14 +4,19 @@
 	background: url("/root/img/head.jpg") no-repeat center;
 	background-size: cover;
 	color:#fff;
-	.version {
+	.added, .version {
 		padding:1.25rem;
 		height: 3.25rem;
 		font-size: 80%;
 		text-align: right;
 	}
-
+	.added a {
+		color:#fff;
+	}
 	.logo {
+		float:left;
+	}
+	.welcome {
 		padding:0 1.25rem;
 		height: 8rem;
 		text-align: center;

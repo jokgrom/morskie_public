@@ -19,8 +19,8 @@
             <div class="content">
                 <div class="left-bar">
                     <ul>
-                        <li><a href="">Пункт1</a></li>
-                        <li><a href="">Пункт2</a></li>
+                        <li><a href="/lord/residence/onChecking/residenceProduct_checking.php">Жильё</a></li>
+                        <li><a href="/lord/entertainment/onChecking/entertainmentProduct_checking.php">Развлечения</a></li>
                     </ul>
                 </div>
                 <main class="main">

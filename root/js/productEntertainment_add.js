@@ -120,7 +120,7 @@ $(function(){
 		product['contacts']=productCheck.contacts;
 
 
-		// собираем данные по удобствам
+		// выбираем тип отдыха
 		$('.filter-check').each(function() {
 			if(this.checked){//если чек выбран
 				product['listEntertainment']=$(this).val();
@@ -128,7 +128,6 @@ $(function(){
         });
 
 		// если ошибок нет то отправляем запрос
-		console.log(product);
 		if(statusError.length>0){
 			$(".info-text").html(statusError.join(""));
 		}else{

@@ -1,12 +1,11 @@
-<aside class="left-bar left-bar-nomer">
+<aside class="left-bar">
 	<ul class="cell">
 		<li><a href="#characteristic">характеристики</a></li>
-		<li><a href="#convenience">удобства</a></li>
-		<li><a href="#rules">правила и ограничения</a></li>
+		<li><a href="#listEntertainment">вид отдыха</a></li>
 		<li><a href="#description">описание</a></li>
+        <li><a href="#price">цены</a></li>
 		<li><a href="#address">адрес</a></li>
 		<li><a href="#contacts">контакты</a></li>
-		<li><a href="#price">цены</a></li>
 	</ul>
 </aside>
 <script>

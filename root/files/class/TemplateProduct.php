@@ -249,7 +249,35 @@
             while($cell =  $stmt->fetch()){
                 list ($sizeWidth, $sizeHeight)=self::photoWH_size($cell["sizeWidth"], $cell["sizeHeight"]);
                 $photoContent.= '<div class="oldBox boxImg" id="oldBox'.$cell["id"].'" draggable="true">
-                        <img src="/photo/'.$personId.'/'.$productId.'/'. $cell["name"].'" draggable="true" width="'.$sizeWidth.'" height="'.$sizeHeight.'" class="dragImg img" id="oldImg'.$cell["id"].'" alt="старое фото">
+                        <img src="/photo/'.$personId.'/'.$productId.'/'. $cell["name"].'" draggable="true" width="'.$sizeWidth.'" height="'.$sizeHeight.'" class="dragImg img oldImg" id="oldImg'.$cell["id"].'" alt="старое фото">
+                        <span id="delete'.$cell["id"].'" class="deletePhoto">x</span>
+                    </div>';
+            }
+            return $photoContent;
+        }
+
+        public function oldPhotoEntertainmentBox($personId, $productId, $UrlAdminStatus){
+            $photoContent='';
+            switch ($UrlAdminStatus){
+                case 1:
+                    $query = "SELECT id, name, sizeWidth, sizeHeight, path FROM photo_entertainment WHERE product_id=:productId AND person_id=:personId ORDER BY priority";
+                    break;
+                case 3:
+                    $query = "SELECT id, name, sizeWidth, sizeHeight, path FROM photo_entertainment WHERE product_id=:productId AND person_id=:personId AND _adminStatusPublication!=1 ORDER BY priority";
+                    break;
+                default:
+                    $query = "SELECT id, name, sizeWidth, sizeHeight, path FROM photo_entertainment WHERE product_id=:productId AND person_id=:personId AND _adminStatusPublication=2 ORDER BY priority";
+                    break;
+            }
+
+            $params =	[':personId' => $personId,
+                ':productId' => $productId];
+            $stmt = $this->db->prepare($query);
+            $stmt->execute($params);
+            while($cell =  $stmt->fetch()){
+                list ($sizeWidth, $sizeHeight)=self::photoWH_size($cell["sizeWidth"], $cell["sizeHeight"]);
+                $photoContent.= '<div class="oldBox boxImg" id="oldBox'.$cell["id"].'" draggable="true">
+                        <img src="/photoEntertainment/'.$personId.'/'.$productId.'/'. $cell["name"].'" draggable="true" width="'.$sizeWidth.'" height="'.$sizeHeight.'" class="dragImg img oldImg" id="oldImg'.$cell["id"].'" alt="старое фото">
                         <span id="delete'.$cell["id"].'" class="deletePhoto">x</span>
                     </div>';
             }
@@ -269,6 +297,29 @@
                     break;
                 default:
                     $query = "SELECT name, path FROM photo_residence WHERE residence_id=:productId AND _adminStatusPublication =2 ORDER BY priority";
+            }
+            $params =	[':productId' => $productId];
+            $stmt = $this->db->prepare($query);
+            $stmt->execute($params);
+            while($cell =  $stmt->fetch()){
+                $photoContent.='<img src="'.$cell["path"].$cell["name"].'">';
+            }
+            return $photoContent;
+        }
+
+
+        public function getPhotoEntertainmentBox($productId, $UrlAdminStatus){
+            //совмещаем старые и вновь добавленные фотографии
+            $photoContent='';
+            switch ($UrlAdminStatus){
+                case 1:
+                    $query = "SELECT name, path FROM photo_entertainment WHERE product_id=:productId ORDER BY priority";
+                    break;
+                case 3:
+                    $query = "SELECT name, path FROM photo_entertainment WHERE product_id=:productId AND _adminStatusPublication !=1 ORDER BY priority";
+                    break;
+                default:
+                    $query = "SELECT name, path FROM photo_entertainment WHERE product_id=:productId AND _adminStatusPublication =2 ORDER BY priority";
             }
             $params =	[':productId' => $productId];
             $stmt = $this->db->prepare($query);
@@ -504,13 +555,13 @@
             }
         }
 
-        function getListEntertainment($values=[]){
+        function getListEntertainment($values=''){
             $listEntertainment='';
             $query = "SELECT id,title FROM entertainment_list ORDER BY title";
             $data =$this->db->query($query);
             if(is_object($data)) {
                 foreach ($data as $cell) {
-                    if (in_array($cell['id'], $values)) {
+                    if ($cell['id']==$values) {
                         $listEntertainment.="<li><label><input type='radio' name='entertainment' class='filter-check' checked value='$cell[id]'> $cell[title]</label></li>";
                     }else{
                         $listEntertainment.="<li><label><input type='radio' name='entertainment' class='filter-check' value='$cell[id]'> $cell[title]</label></li>";

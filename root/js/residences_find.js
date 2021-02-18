@@ -12,7 +12,6 @@ $(function() {
     const formFilterAdOwner = $('.filter-adOwner');
     const formFilterSort = $('.filter-sort');
     const mapImgSearch = $('.mapImgSearch');
-    const mapImgSearch_box = $('.mapImgSearch-box');
 
 
     function editUrlPage(){
@@ -217,13 +216,11 @@ $(function() {
 
     formFilterSuburb.on("change",function(){
         var product=check_productSuburb(formFilterSuburb.val());
-        var city_id='';
+        var city_id=check_productCity(formFilterCity.val());
         editUrl('suburb',product.suburb);
-        city_id=(product.suburb>0) ? product.suburb : check_productCity(formFilterCity.val());
-        console.log(city_id);
+        city_id=(product.suburb>0) ? product.suburb : city_id.city;
         $.get('app/mapSearch.php',  {city_id: city_id}, function(data) {
             mapImgSearch.html(data);
-            console.log('dsa');
         });
 
         searchProduct();

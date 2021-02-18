@@ -265,7 +265,7 @@ class MyResidence{
         $bool=true;
         while($cell =  $stmt->fetch()){
             if($bool){
-                echo '<h1 class="title">Изменения на модерации</h1>';
+                echo '<h1 class="title">Жильё | Изменения на модерации</h1>';
                 $bool=false;
             }
             array_push($productId_array, $cell["residenceId"]);
@@ -289,7 +289,7 @@ class MyResidence{
         if($list_productId==''){ return false;}
 
         //выведем те у которых только фото на редактировании
-        echo '<h2 class="title">Фотографии на модерации</h2>';
+        echo '<h2 class="title">Жильё | Фотографии на модерации</h2>';
         $query = "SELECT id , title FROM residence WHERE person_id=:personId AND id IN ($list_productId) ORDER BY date_actual DESC";
         $stmt = $this->db->prepare($query);
         $stmt->execute($params);
@@ -339,7 +339,7 @@ class MyResidence{
         $bool=true;
         while($cell =  $stmt->fetch()){
             if($bool){
-                echo '<h1 class="title">Отклонённые изменения</h1>';
+                echo '<h1 class="title">Жильё | Отклонённые изменения</h1>';
                 $bool=false;
             }
             array_push($productId_array, $cell["residenceId"]);
@@ -364,8 +364,7 @@ class MyResidence{
         $list_productId=implode(', ', $productId_newArray);
         if($list_productId==''){ return false;}
 
-        echo '<h2 class="title">Отклонённые фотографии</h2>';
-        echo $list_productId;
+        echo '<h2 class="title">Жильё | Отклонённые фотографии</h2>';
         $query = "SELECT id , title FROM residence WHERE person_id=:personId AND id IN ($list_productId) ORDER BY date_actual DESC";
         $stmt = $this->db->prepare($query);
         $stmt->execute($params);
@@ -470,7 +469,7 @@ class MyResidence{
         $stmt = $this->db->prepare($query);
         if($stmt->execute($params)){
             self::_mail('edit_residence', $personId);
-            exit('<div class="modal"><p>бъявление отправленно на рассмотрение!</p></div>
+            exit('<div class="modal"><p>Объявление отправленно на рассмотрение!</p></div>
                     <script  type="text/javascript">
                      setTimeout(function(){
                         window.location.href = "/cabinet/residence/";

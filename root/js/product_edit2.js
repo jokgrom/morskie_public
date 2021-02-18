@@ -1,7 +1,7 @@
 $(function() {
 	const formButton=$('.form-button');
 	let queue = {};
-	let changeImg = document.querySelectorAll(".dragImg");
+	let changeImg = document.querySelectorAll(".oldImg");
 	var lengthOldImg=changeImg.length;
 	var idOldImg_array=[];
 	for(let i=0; i<lengthOldImg; i++){
@@ -53,7 +53,7 @@ $(function() {
 							w=200;
 						}
 						$('#box-img').append('<div class="newBox boxImg" id="newBox'+rand+'" draggable="true">' +
-							'<img src="'+url+'" draggable="true" width="'+w+'" height="'+h+'" class="dragImg img" id="newImg'+rand+'" alt="Новое изображение"/>' +
+							'<img src="'+url+'" draggable="true" width="'+w+'" height="'+h+'" class="dragImg img newIng" id="newImg'+rand+'" alt="Новое изображение"/>' +
 							'<span id="deleteNew'+rand+'" class="deletePhoto" >x</span></div>');
 
 						queue[newId] = file;
@@ -84,7 +84,6 @@ $(function() {
 		delete queue[$(this).siblings().attr('id')];
 		checkLimitPhoto();
 	});
-
 
 
 	formButton.on('click',function(){
@@ -123,11 +122,12 @@ $(function() {
 			});
 		}
 
-
-		if(countPhoto>lengthOldImg){
+		let changeNewImg = document.querySelectorAll(".newIng");
+		var countNewPhoto=changeNewImg.length;
+		if(countNewPhoto>0){
 			setTimeout(function(){
 				$(".info-text").html("Началась загрука фотографий. Пожалуйста дождитесь результата загрузки...");
-			}, 1000);
+			}, 1500);
 			$.ajax({
 				url: 'app/edit2_2.php',
 				type: 'POST',

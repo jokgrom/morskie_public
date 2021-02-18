@@ -33,8 +33,6 @@
     $product["page"]=$CleanForm->number($_GET["page"]);
 
     $city_id=($product["suburb"]==0 ? $product["city"] : $product["suburb"]);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="ru">

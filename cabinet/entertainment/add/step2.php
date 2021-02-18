@@ -25,7 +25,7 @@
 <head><?php require_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/head.php');?></head>
 <script src="/root/js/product_add2.js<?php echo $updateUrlHash; ?>"></script>
 <body>
-	<div class="page page-addResidence">
+	<div class="page page-addEntertainment">
 		<div class="wrap">
 			<?php include_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/header.php');?>
 			<div class="container">

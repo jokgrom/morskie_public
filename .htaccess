@@ -9,12 +9,13 @@ AddDefaultCharset UTF-8
 ErrorDocument 403 /403.php
 ErrorDocument 404 /404.php
 
-RewriteRule ^residence/([^/\.]+)$ /residence/index.php?id=$1 [NC,L]
+RewriteRule ^residence/([^/.]+)$ /residence/index.php?id=$1 [NC,L]
+RewriteRule ^entertainment/([^/.]+)$ /entertainment/index.php?id=$1 [NC,L]
 
 # запрет выдачи листинга
 Options -Indexes
 
-<Files ~ "app\/\.php$">
+<Files ~ "app/\.php$">
   Order allow,deny
   Deny from all
 </Files>

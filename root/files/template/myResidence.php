@@ -53,5 +53,5 @@
             <div class="mapImg" style="background-image: url(<?php echo $mapImgUrl;?>)"></div>
         </div>
     </div>
-    <p class="infoError"><?php echo $cell[residenceInfoError]; ?></p>
+    <?php if($cell["residenceInfoError"]!=''){echo '<p class="infoError">'.$cell["residenceInfoError"].'</p>';} ?>
 </section>
