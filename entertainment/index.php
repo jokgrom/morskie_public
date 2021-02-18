@@ -54,7 +54,7 @@
         exit("<div class='modal'><p>Ошибка: $statusError!</p></div>
                 <script type='text/javascript'>
                 setTimeout(function(){
-                    window.location.href = '/residences/';
+                    window.location.href = '/entertainments/';
                 }, 500);
                 </script>");
     }

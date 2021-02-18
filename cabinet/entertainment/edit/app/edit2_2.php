@@ -133,7 +133,7 @@
         }
         if($countPhoto>=1){
             setcookie('lastEditEntertainmentId','',0,'/');//удалим куку
-//            $MyEntertainment->_mail('new_photoResidence', $personId);
+            $MyEntertainment->_mail('new_photoEntertainment', $personId);
             exit('<div class="modal"><p>Отправленно на рассмотрение фотографий: '.$countPhoto.'!</p></div>
                 <script  type="text/javascript">
                      setTimeout(function(){

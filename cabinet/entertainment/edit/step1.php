@@ -58,7 +58,7 @@
 			<?php include_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/header.php');?>
 			<div class="container">
 				<div class="content">
-					<?php include_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/leftBar/residenceLeftBar.php');?>
+					<?php include_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/leftBar/entertainmentLeftBar.php');?>
 					<main class="main">
 						<h1 class="title">Шаг 1/2. Редактирование объявления</h1>
                         <section class="section">
