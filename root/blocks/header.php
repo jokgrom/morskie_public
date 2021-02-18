@@ -11,7 +11,7 @@
 ?>
 <header class="header">
 	<div class="added">
-        <p><span class="logo"><a href="https://morskie-puti.ru">Морские пути. Жильё и отдых 2021</a></span><a href="<?php echo $url_navigation; ?>">Разместить жилье </a></p>
+        <p><a href="<?php echo $url_navigation; ?>">Разместить жилье </a></p>
         <p><a href="<?php echo $url_navigation3; ?>">Разместить развлечения </a></p>
     </div>
 	<div class="welcome"><p>Отдых и жильё на море без посредников!</p></div>
