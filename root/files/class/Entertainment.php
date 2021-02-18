@@ -35,7 +35,7 @@ class Entertainment{
         $queryGroupBy=' GROUP BY entertainment.id';
 
         $queryCOUNT="SELECT COUNT(DISTINCT entertainment.id) AS `countProduct` FROM entertainment 
-                INNER JOIN photo_entertainment ON photo_entertainment.residence_id=entertainment.id AND photo_entertainment._adminStatusPublication=2
+                INNER JOIN photo_entertainment ON photo_entertainment.product_id=entertainment.id AND photo_entertainment._adminStatusPublication=2
                 WHERE entertainment._adminStatusPublication =2 AND entertainment.publicationStatus_id=2";
 
         $query = "SELECT entertainment.id AS `entertainmentId`,
@@ -46,7 +46,7 @@ class Entertainment{
                             city.title AS `cityTitle`, 
                             city2.title AS `suburbTitle`, 
                             entertainment_list.title AS `entertainment_listTitle`, 
-                            entertainment.description AS `residenceDescription`,
+                            entertainment.description AS `entertainDescription`,
                             entertainment.prices AS `entertainmentPrices`, 
                             entertainment.addressLatitude AS `entertainmentAddressLatitude`, 
                             entertainment.addressLongitude AS `entertainmentAddressLongitude`,

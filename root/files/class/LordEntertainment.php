@@ -211,12 +211,12 @@ class LordEntertainment
     public function getPhoto_onChecking(){
         //вывести фотки у которых статус на администрировании
         $query="SELECT product_id, id, sizeWidth, sizeHeight, path, name FROM photo_entertainment WHERE _adminStatusPublication=3 ORDER BY product_id";
-        $residence_id='';
+        $entertainment_id='';
         $data=$this->db->query($query);
         if(is_object($data)){
             foreach ($data as $cell){
-                if($residence_id!=$cell["product_id"]){
-                    $residence_id=$cell["product_id"];
+                if($entertainment_id!=$cell["product_id"]){
+                    $entertainment_id=$cell["product_id"];
                     echo '<div class="photo-box" style="width: 100%"></div>';
                 }
                 $h=$cell['sizeHeight'];
@@ -254,7 +254,6 @@ class LordEntertainment
     public function getPhoto_refusing(){
         //вывести фотки у которых статус на администрировании
         $query="SELECT 	product_id, id, path, name FROM photo_entertainment WHERE _adminStatusPublication=1 ORDER BY  product_id";
-        $residence_id='';
         $data=$this->db->query($query);
         if(is_object($data)){
             foreach ($data as $cell){

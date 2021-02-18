@@ -19,9 +19,9 @@ class MyEntertainment{
                 $title='Морские пути - Новое фото';
                 $subject='new photo Entertainment';
                 break;
-            case 'edit_residence':
-                $title='Морские пути - редактирование жилья';
-                $subject='edit residence';
+            case 'edit_entertainment':
+                $title='Морские пути - редактирование развлечения';
+                $subject='edit entertainment';
                 break;
             default:
                 $title='Морские пути';
@@ -106,7 +106,7 @@ class MyEntertainment{
                                 :address, :contacts)";
         $stmt_is_edit = $this->db->prepare($query_is_edit);
         if($stmt_is_edit->execute($params)){
-//            self::_mail('new_entertainment', $personId);
+            self::_mail('new_entertainment', $personId);
             exit('<div class="modal"><p>Объявление создано, осталось добавить фотографии!</p></div>
                     <script  type="text/javascript">
                      setTimeout(function(){
@@ -335,12 +335,12 @@ class MyEntertainment{
         $stmt_update->execute($params);
         unset($query_update, $stmt_update);
 
-        $query="SELECT DATE_FORMAT(date_actual, '%d.%m.%y %k:%i') AS `residenceDate_actual`
+        $query="SELECT DATE_FORMAT(date_actual, '%d.%m.%y %k:%i') AS `entertainmentDate_actual`
                     FROM entertainment WHERE id=:productId AND person_id=:personId LIMIT 1";
         $stmt = $this->db->prepare($query);
         $stmt->execute($params);
         $cell =  $stmt->fetch();
-        return $cell['residenceDate_actual'];
+        return $cell['entertainmentDate_actual'];
     }
 
     public function edit($personId, $product){
@@ -376,7 +376,7 @@ class MyEntertainment{
             ':contacts' => $product['contacts']];
         $stmt = $this->db->prepare($query);
         if($stmt->execute($params)){
-//            self::_mail('edit_residence', $personId);
+            self::_mail('edit_entertainment', $personId);
             exit('<div class="modal"><p>Объявление отправленно на рассмотрение!</p></div>
                     <script  type="text/javascript">
                      setTimeout(function(){
