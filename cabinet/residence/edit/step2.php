@@ -50,7 +50,7 @@
 				<div class="content">
 					<aside class="left-bar left-bar-nomer"></aside>
 					<main class="main">
-						<h1 class="title">Редактирование фотографий</h1>
+						<h1 class="title">Редактирование фотографий | Жильё</h1>
 						<p>Объявление: <span class="color1 strong"><?php echo $Residence->title; ?></span></p>
 						<p class="small-font">Ограничение: не более 15 фотографий, формат jpg, jpeg, png и не более 10мб</p>
                         <section class="section">

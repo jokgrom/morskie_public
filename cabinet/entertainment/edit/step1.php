@@ -60,7 +60,7 @@
 				<div class="content">
 					<?php include_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/leftBar/entertainmentLeftBar.php');?>
 					<main class="main">
-						<h1 class="title">Шаг 1/2. Редактирование объявления</h1>
+						<h1 class="title">Шаг 1/2. Редактирование объявления | Развлечения</h1>
                         <section class="section">
                             <p class="strong"><label for="product-title">Название объявления</label></p>
                             <?php echo $TemplateProduct->title($MyEntertainment->title); ?>

@@ -24,8 +24,6 @@
         }, 500);
         </script>');
     }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -42,7 +40,7 @@
 				<div class="content">
 					<?php include_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/leftBar/residenceLeftBar.php');?>
 					<main class="main">
-						<h1 class="title">Шаг 1/2. Размещение бесплатного объявления</h1>
+						<h1 class="title">Шаг 1/2. Размещение бесплатного объявления | Жильё</h1>
 						<section class="section">
 							<p class="small">Объявления размещаются бесплатно. Если у вас несколько номеров, то разместите отдельно каждое объявление к каждому номеру.</p>
                             <p class="small">Если вдруг возникли трудности, <a href="/contacts/">свяжитесь с нами</a>. Мы разместим объявление за вас!</p>

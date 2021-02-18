@@ -32,7 +32,7 @@
 				<div class="content">
 					<aside class="left-bar"></aside>
 					<main class="main">
-						<h1 class="title">Шаг 2/2. Размещение бесплатного объявления</h1>
+						<h1 class="title">Шаг 2/2. Размещение бесплатного объявления | Развлечения</h1>
                         <p class="small">Объявление было создано, осталось добавить фотографии. Не более 15 фотографий и формата jpg, jpeg, png.</p>
 						<section class="section">
                             <form name="" method="post" action="#" enctype="multipart/form-data" >

@@ -42,7 +42,7 @@
 				<div class="content">
 					<?php include_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/leftBar/entertainmentLeftBar.php');?>
 					<main class="main">
-						<h1 class="title">Шаг 1/2. Размещение бесплатного объявления</h1>
+						<h1 class="title">Шаг 1/2. Размещение бесплатного объявления | Развлечения</h1>
 						<section class="section">
 							<p class="small">Объявления размещаются бесплатно. Если у вас несколько развлечений, то разместите отдельно каждое объявление к каждому развлечению.</p>
                             <p class="small">Если вдруг возникли трудности, <a href="/contacts/">свяжитесь с нами</a>. Мы разместим объявление за вас!</p>
