@@ -10,7 +10,10 @@
 ?>
 <!DOCTYPE html>
 <html lang="ru">
-    <head><?php require_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/head.php');?></head>
+    <head>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/head.php');?>
+        <meta name="robots" content="noindex, follow"/>
+    </head>
     <script src="/root/js/cleanFormProduct.js<?php echo $updateUrlHash; ?>"></script>
     <script src="/root/js/entertainment_find.js<?php echo $updateUrlHash; ?>"></script>
     <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>

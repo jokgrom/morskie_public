@@ -5,14 +5,12 @@ Allow: /cabinet/authorization.php
 Allow: /cabinet/registration.php
 Disallow: /entertainment
 Allow: /entertainment/index.php?id*
-Disallow: /entertainments
 Disallow: /lord
 Disallow: /residence
 Allow: /residence/index.php?id*
-Disallow: /residences
 Disallow: /root
 Disallow: /.htaccess
 Disallow: /404.php
 
 Host: morskie-puti.ru
-Sitemap: https://morskie-puti.ru/Sitemap.xml
+Sitemap: https://morskie-puti.ru/sitemap.xml
