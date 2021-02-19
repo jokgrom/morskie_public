@@ -32,6 +32,7 @@ class Entertainment{
         if($product['suburb']!=0){array_push($queryWhere, 'entertainment.suburb_id='.$product['suburb']);}
         if($product['listEntertainment']!=0){array_push($queryWhere, 'entertainment.entertainment='.$product['listEntertainment']);}
 
+        $queryOrderBy=' ORDER BY entertainment.date_actual DESC';
         $queryGroupBy=' GROUP BY entertainment.id';
 
         $queryCOUNT="SELECT COUNT(DISTINCT entertainment.id) AS `countProduct` FROM entertainment 
@@ -74,7 +75,8 @@ class Entertainment{
             $queryLimit=' LIMIT 0,'.$maxCountProduct;
         }
 
-        $query.=$queryGroupBy.$queryLimit;
+        $query.=$queryGroupBy.$queryOrderBy;
+        $query.=$queryLimit;
         $data =$this->db->query($query);
         if(is_object($data)){
             foreach($data  as $cell) {

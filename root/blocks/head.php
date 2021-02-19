@@ -50,9 +50,10 @@
             $pageInfo['description']=$description;
 
             $keywords = explode(" ", $Residence->title);
+
             if(count($keywords)>1){
                 foreach($keywords as $key => $value){
-                    if(iconv_strlen($value)<3){
+                    if(strlen($value)<3){
                         unset($keywords[$key]);
                     }
                 }
@@ -82,7 +83,7 @@
             $keywords = explode(" ", $Entertainment->title);
             if(count($keywords)>1){
                 foreach($keywords as $key => $value){
-                    if(iconv_strlen($value)<3){
+                    if(strlen($value)<3){
                         unset($keywords[$key]);
                     }
                 }
@@ -165,3 +166,4 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/71666248" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+<script data-ad-client="ca-pub-8604703676658773" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

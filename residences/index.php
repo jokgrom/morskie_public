@@ -33,12 +33,17 @@
     $product["page"]=$CleanForm->number($_GET["page"]);
 
     $city_id=($product["suburb"]==0 ? $product["city"] : $product["suburb"]);
+
+    if ($product["city"]>0) {
+        $canonical='<link rel="canonical" href="https://morskie-puti.ru/residences/?city='.$product["city"].'" />';
+    }else{
+        $canonical='<link rel="canonical" href="https://morskie-puti.ru/residences/" />';
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <?php require_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/head.php');?>
-        <meta name="robots" content="noindex, follow"/>
+        <?php require_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/head.php'); echo $canonical;?>
     </head>
     <script src="/root/js/cleanFormProduct.js<?php echo $updateUrlHash; ?>"></script>
     <script src="/root/js/residences_find.js<?php echo $updateUrlHash; ?>"></script>

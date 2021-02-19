@@ -12,7 +12,7 @@
 <html lang="ru">
     <head>
         <?php require_once($_SERVER['DOCUMENT_ROOT'].'/root/blocks/head.php');?>
-        <meta name="robots" content="noindex, follow"/>
+        <link rel="canonical" href="https://morskie-puti.ru/entertainments/" />
     </head>
     <script src="/root/js/cleanFormProduct.js<?php echo $updateUrlHash; ?>"></script>
     <script src="/root/js/entertainment_find.js<?php echo $updateUrlHash; ?>"></script>
