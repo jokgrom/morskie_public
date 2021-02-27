@@ -543,6 +543,49 @@
                 "<span class='h1_adOwner'>$h1_adOwner</span> <span class='h1_sort'>$h1_sort</span>";
         }
 
+        function htmlEntertainment_h1($product){
+            $querySelect=[];
+            $queryFrom=[];
+            $queryWhere=[];
+            $h1=[];
+            if($product["city"]!=''){
+                array_push($querySelect, 'city.title AS `city`');
+                array_push($queryFrom, 'city');
+                array_push($queryWhere, 'city.id='.$product['city']);
+                $h1['city']='г. ';
+            }
+            if($product["suburb"]!=''){
+                array_push($querySelect, 'city2.title AS `suburb`');
+                array_push($queryFrom, 'city AS `city2`');
+                array_push($queryWhere, 'city2.id='.$product['suburb']);
+            }
+            if($product["listEntertainment"]!=''){
+                array_push($querySelect, 'entertainment_list.title AS `listEntertainment`');
+                array_push($queryFrom, 'entertainment_list');
+                array_push($queryWhere, 'entertainment_list.id='.$product['listEntertainment']);
+                $h1['listEntertainment']='вид отдыха: ';
+            }
+
+            $h1_city=$h1_suburb=$h1_listEntertainment='';
+            if(count($querySelect)>=1){
+                $querySelect=join($querySelect, ' , ');
+                $queryFrom=join($queryFrom, ' , ');
+                $queryWhere=join($queryWhere, ' AND ');
+
+                $query="SELECT $querySelect FROM $queryFrom WHERE $queryWhere";
+                $data =$this->db->query($query);
+                if(is_object($data)){
+                    foreach($data  as $cell) {
+                        $h1_city=($h1['city'] ? $h1['city'].$cell['city'].',' : '');
+                        $h1_suburb=($cell['suburb'] ? $h1['suburb'].$cell['suburb'].',' : '');
+                        $h1_listEntertainment=($h1['listEntertainment'] ? $h1['listEntertainment'].$cell['listEntertainment'].',' : '');
+                    }
+                }
+            }
+            return "Поиск отдыха и развлечений, <span class='h1_city'>$h1_city</span> <span class='h1_suburb'>$h1_suburb</span> ".
+                "<span class='h1_listEntertainment'>$h1_listEntertainment</span>";
+        }
+
         function mapSearch($city_id){
             $query = "SELECT title ,addressLatitude, addressLongitude FROM city WHERE id = :city_id LIMIT 1";
             $stmt = $this->db->prepare($query);

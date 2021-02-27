@@ -365,7 +365,7 @@ $(function() {
 
         var url= window.location.href;
         var newUrl;
-        newUrl=url.replace(/morskie(.*)/g,'morskie/residences/');
+        newUrl=url.replace(/morskie(.*)/g,'morskie-puti.ru/residences/');
         history.pushState('', '', newUrl);
         searchProduct();
         $('.h1_city').html('');

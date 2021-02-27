@@ -351,7 +351,7 @@ class MyEntertainment{
         $stmt_deleteProduct->execute($params);
 
         $product['description']=nl2br($product['description']);
-        $product['prices']=nl2br($product['prices']);
+        $product['entertainmentPrice']=nl2br($product['entertainmentPrice']);
         $product['contacts']=nl2br($product['contacts']);
         $query = "INSERT INTO entertainment_edit 
                     (entertainment_id, date_edit, date_actual, person_id, title, 
