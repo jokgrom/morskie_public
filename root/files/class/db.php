@@ -1,13 +1,13 @@
 <?php
 ////подключение к БД//
-//$host_name = 'localhost';//хост бд s26.hostia.name
-//$db_name   = 'jokgrom_morskie'; //имя бд e
-//$user_name = 'jokgrom_morskie'; //пользователь бд e
-//$password_db = '2nNMRP2U'; //пароль от бд 2nNMRP2U
-//$charset_db = 'utf8';//кодировка для работы с бд
+//$host_name = 'localhost';
+//$db_name   = 'jokgrom_morskie'; 
+//$user_name = 'jokgrom_morskie'; 
+//$password_db = '2n2U'; 
+//$charset_db = 'utf8';
 //
 //$dsn = "mysql:host=$host_name;dbname=$db_name;";
-////какая то хрень
+///
 //$opt = [
 //    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
 //    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
